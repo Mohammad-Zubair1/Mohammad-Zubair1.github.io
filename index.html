@@ -127,8 +127,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-fill-color: transparent;
-            filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.3));
         }
 
         /* Glowing Buttons */
@@ -345,6 +343,381 @@
         a:hover {
             color: #06b6d4;
         }
+
+        /* Filter Buttons */
+        .filter-btn {
+            padding: 10px 20px;
+            border: 2px solid rgba(16, 185, 129, 0.3);
+            background: transparent;
+            color: #10b981;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .filter-btn:hover {
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, #10b981, #06b6d4);
+            color: white;
+            border-color: #10b981;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+        }
+
+        /* Featured Project Styling */
+        .featured-project {
+            border: 2px solid rgba(16, 185, 129, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-project::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.1), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .featured-project:hover::before {
+            left: 100%;
+        }
+
+        /* Tech Icon Wrapper with Tooltip */
+        .tech-icon-wrapper {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 8px;
+            background: rgba(16, 185, 129, 0.05);
+            transition: all 0.3s ease;
+            cursor: help;
+        }
+
+        .tech-icon-wrapper:hover {
+            background: rgba(16, 185, 129, 0.15);
+            border-color: rgba(16, 185, 129, 0.4);
+            transform: translateY(-4px);
+        }
+
+        .tech-tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(15, 23, 42, 0.95);
+            color: #10b981;
+            padding: 6px 12px;
+            border-radius: 6px;
+            white-space: nowrap;
+            font-size: 0.8rem;
+            font-weight: 600;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 10;
+            margin-bottom: 8px;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .tech-icon-wrapper:hover .tech-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Project Cards Grid */
+        .projects-grid {
+            animation: fadeIn 0.6s ease;
+        }
+
+        .project-card {
+            animation: slideUp 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .project-card.visible {
+            opacity: 1;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Project Card Hover Effects */
+        .project-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(16, 185, 129, 0.4);
+        }
+
+        .project-card .group:hover {
+            background: rgba(16, 185, 129, 0.08);
+        }
+
+        /* Line Clamp for descriptions */
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Load More Button */
+        #loadMoreBtn {
+            transition: all 0.3s ease;
+        }
+
+        #loadMoreBtn:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Reveal Animation for buttons */
+        @keyframes revealButtons {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .filter-btn {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+
+            .tech-icon-wrapper {
+                width: 40px;
+                height: 40px;
+            }
+
+            .project-card:hover {
+                transform: translateY(-4px) scale(1.01);
+            }
+        }
+
+        /* Skill Icons Cards */
+        .skill-icon-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 12px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            background: rgba(16, 185, 129, 0.05);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .skill-icon-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(16, 185, 129, 0.4);
+        }
+
+        .skill-icon-bg {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-icon-card:hover .skill-icon-bg {
+            transform: scale(1.15);
+        }
+
+        .skill-experience {
+            position: absolute;
+            bottom: -24px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(15, 23, 42, 0.95);
+            color: #10b981;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .skill-icon-card:hover .skill-experience {
+            opacity: 1;
+            visibility: visible;
+            bottom: -30px;
+        }
+
+        /* Proficiency Bar Animation */
+        .skill-icon-card p {
+            margin-top: 12px;
+        }
+
+        /* Currently Learning Section Styling */
+        .skill-learning-item {
+            transition: all 0.3s ease;
+        }
+
+        .skill-learning-item:hover {
+            transform: translateX(8px);
+            background: rgba(234, 179, 8, 0.15);
+            border-color: rgba(234, 179, 8, 0.4);
+        }
+
+        /* Contact Form Enhanced Styling */
+        .contact-input {
+            background: rgba(30, 41, 59, 0.5) !important;
+            border: 1px solid rgba(16, 185, 129, 0.2) !important;
+            color: #e2e8f0 !important;
+            padding: 12px 16px !important;
+            border-radius: 8px !important;
+            transition: all 0.3s ease !important;
+            font-family: inherit !important;
+        }
+
+        .contact-input:focus {
+            outline: none !important;
+            background: rgba(30, 41, 59, 0.8) !important;
+            border-color: #10b981 !important;
+            box-shadow: 0 0 25px rgba(16, 185, 129, 0.3), inset 0 0 10px rgba(16, 185, 129, 0.1) !important;
+        }
+
+        .contact-input::placeholder {
+            color: rgba(226, 232, 240, 0.5) !important;
+        }
+
+        /* Focus parent animation */
+        .contact-input:focus-within {
+            border-color: #10b981 !important;
+        }
+
+        /* Error states */
+        .error .contact-input {
+            border-color: #ef4444 !important;
+            background: rgba(239, 68, 68, 0.05) !important;
+        }
+
+        .error-message {
+            font-weight: 500;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-5px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Toast Notifications */
+        #toastContainer {
+            pointer-events: auto;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+        }
+
+        .animate-slideIn {
+            animation: slideInRight 0.3s ease;
+        }
+
+        /* Loading Spinner */
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .animate-spin {
+            animation: spin 1s linear infinite;
+        }
+
+        /* Button with loading state */
+        #submitBtn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        #submitBtn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        /* reCAPTCHA styling */
+        .g-recaptcha {
+            transform: scale(0.9);
+            transform-origin: 0 0;
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .g-recaptcha {
+                transform: scale(0.85);
+            }
+        }
     </style>
 <body>
 </head>
@@ -381,22 +754,72 @@
         <section id="hero" class="min-h-screen flex items-center justify-center pt-20 pb-20 px-4 md:px-8">
             <div class="max-w-4xl mx-auto text-center">
                 <div class="mb-8 fade-in">
-                        <div class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full glass p-2 mb-6">
+                    <div class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full glass p-2 mb-6">
                         <img src="screenshots/Profile.png" alt="Mohammad Zubair Profile" width="320" height="320" loading="lazy" class="w-full h-full rounded-full object-cover">
                     </div>
                 </div>
 
-                <h1 class="text-4xl md:text-6xl font-bold mb-4 fade-in glow-text">
+                <h1 class="text-4xl md:text-6xl font-bold mb-2 fade-in glow-text">
                     Mohammad Zubair
                 </h1>
 
-                <p class="text-xl md:text-2xl text-emerald-400 font-semibold mb-6 fade-in">
-                    Full Stack Developer | React.js • Laravel • Payment Integration Specialist
+                <!-- Typing roles (animated) -->
+                <p class="text-lg md:text-xl text-emerald-400 font-semibold mb-3 fade-in" aria-live="polite">
+                    <span id="typed-roles" class="inline-block"></span>
                 </p>
 
-                <p class="text-gray-300 text-lg max-w-2xl mx-auto mb-8 fade-in leading-relaxed">
-                    Built <span class="text-emerald-400 font-semibold">CourseLab</span>, a live monetized EdTech platform handling auth, dynamic courses, and Razorpay payments for 50+ users—boosting engagement 30%. Specialized in secure APIs, responsive UIs, and agile workflows.
+                <!-- Tagline -->
+                <p class="text-gray-300 text-base md:text-lg max-w-2xl mx-auto mb-6 fade-in leading-relaxed">
+                    Building Production-Ready Applications with Clean, Scalable Code
                 </p>
+
+                <!-- Highlighted Achievement -->
+                <div class="inline-flex items-center gap-3 bg-emerald-400/10 border border-emerald-400/20 text-emerald-200 px-4 py-2 rounded-full mx-auto mb-6 fade-in">
+                    <i class="fas fa-trophy text-emerald-400"></i>
+                    <span class="text-sm md:text-base font-semibold">Built EdTech platform serving <span class="text-white">50+ users</span> with <span class="text-white">30% engagement boost</span></span>
+                </div>
+
+                <p class="text-gray-300 text-lg max-w-2xl mx-auto mb-8 fade-in leading-relaxed">
+                    Built <span class="text-emerald-400 font-semibold">CourseLab</span>, a live monetized EdTech platform handling auth, dynamic courses, and Razorpay payments. I focus on secure APIs, responsive UIs, and production-ready deployments.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col md:flex-row gap-4 justify-center fade-in flex-wrap">
+                    <a href="resume.html" target="_blank" rel="noopener noreferrer" class="glow-btn transform transition hover:scale-105 hover:-translate-y-1 px-6 py-3 text-base md:text-lg" aria-label="View Professional Resume">
+                        <i class="fas fa-file-pdf mr-2"></i> View Resume
+                    </a>
+                    <a href="https://github.com/Mohammad-Zubair1" target="_blank" rel="noopener noreferrer" class="glow-btn btn-secondary transform transition hover:scale-105 hover:-translate-y-1 px-6 py-3 text-base md:text-lg" aria-label="Visit GitHub">
+                        <i class="fab fa-github mr-2"></i> GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/mohammadzubairdev" target="_blank" rel="noopener noreferrer" class="glow-btn btn-secondary transform transition hover:scale-105 hover:-translate-y-1 px-6 py-3 text-base md:text-lg" aria-label="Visit LinkedIn">
+                        <i class="fab fa-linkedin mr-2"></i> LinkedIn
+                    </a>
+                    <a href="#contact" class="glow-btn btn-secondary transform transition hover:scale-105 hover:-translate-y-1 px-6 py-3 text-base md:text-lg" aria-label="Contact me">
+                        <i class="fas fa-envelope mr-2"></i> Get in Touch
+                    </a>
+                </div>
+
+                <!-- Social Links -->
+                <div class="flex justify-center gap-6 mt-12 fade-in">
+                    <a href="https://github.com/Mohammad-Zubair1" target="_blank" rel="noopener noreferrer" class="text-2xl text-gray-400 hover:text-emerald-400 transition" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mohammadzubairdev" target="_blank" rel="noopener noreferrer" class="text-2xl text-gray-400 hover:text-emerald-400 transition" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:zubairskb030@gmail.com" class="text-2xl text-gray-400 hover:text-emerald-400 transition" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+
+                <!-- Scroll Indicator (improved) -->
+                <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 fade-in">
+                    <a href="#about" class="scroll-indicator flex items-center justify-center w-10 h-16 rounded-full border border-emerald-400/30">
+                        <span class="dot w-2 h-2 bg-emerald-400 rounded-full block animate-bounce"></span>
+                    </a>
+                </div>
+            </div>
+        </section>
 
                 <!-- Location Badge -->
                 <div class="flex justify-center items-center gap-2 text-gray-400 mb-8 fade-in">
@@ -447,52 +870,76 @@
                     <i class="fas fa-user-circle mr-3"></i> About Me
                 </h2>
 
+                <!-- Main About Content -->
                 <div class="glass glass-hover p-8 md:p-12 rounded-2xl mb-12">
-                    <h3 class="text-2xl font-bold text-emerald-400 mb-6">Professional Summary</h3>
+                    <h3 class="text-3xl font-bold text-emerald-400 mb-6">I turn complex problems into elegant solutions</h3>
+                    
                     <p class="text-gray-300 text-lg leading-relaxed mb-6">
-                        I'm a passionate <span class="text-emerald-400 font-semibold">Full Stack Developer</span> with a strong foundation in building scalable, user-centric applications. As a fresher, I've already created a production-ready EdTech platform that demonstrates end-to-end development expertise, from concept and design to deployment and maintenance.
+                        I'm a <span class="text-emerald-400 font-semibold">Full Stack Developer</span> obsessed with building production-ready applications that people actually want to use. My approach is simple: understand the problem deeply, architect a scalable solution, and execute with precision. In 12 weeks of solo development, I built <span class="text-emerald-400 font-semibold">CourseLab</span>—an EdTech platform that handles <span class="text-emerald-400 font-semibold">50+ concurrent users, processed 500+ course records, and maintains a 99.9% uptime</span>. More importantly, I <span class="text-emerald-400 font-semibold">reduced API response times by 50%</span> through optimized queries and achieved a <span class="text-emerald-400 font-semibold">90+ Lighthouse performance score</span>.
                     </p>
+
                     <p class="text-gray-300 text-lg leading-relaxed mb-6">
-                        My journey in full-stack development includes hands-on experience with modern frameworks (React.js, Laravel), secure authentication systems, payment gateway integration, and responsive UI/UX design. I'm committed to continuous learning and currently expanding my skills in Node.js and advanced architecture patterns.
+                        What drives me is the intersection of clean code and user impact. I've built secure JWT authentication systems, integrated payment gateways with zero transaction failures, and designed responsive interfaces that users love. I don't just write code—I solve business problems. Whether it's optimizing database queries, architecting scalable APIs, or ensuring seamless user experiences, I bring both technical rigor and strategic thinking to every project.
                     </p>
+
                     <p class="text-gray-300 text-lg leading-relaxed">
-                        I thrive in agile environments, solve complex problems systematically, and deliver clean, maintainable code. I'm actively seeking entry-level remote roles to contribute to impactful projects while scaling my expertise in full-stack development and emerging technologies.
+                        Beyond coding, I'm drawn to continuous learning and building communities. I thrive in agile environments, mentor other developers, and contribute thoughtfully to open-source. I'm actively seeking roles where I can make a measurable impact on product and user outcomes while growing alongside talented teams.
                     </p>
                 </div>
 
-                <!-- Soft Skills -->
-                <div class="grid md:grid-cols-2 gap-8 mb-12">
-                    <div class="glass glass-hover p-8 rounded-2xl">
-                        <h3 class="text-xl font-bold text-emerald-400 mb-6">
-                            <i class="fas fa-star mr-2"></i> Core Strengths
+                <!-- What I'm Up To -->
+                <div class="grid md:grid-cols-3 gap-6 mb-12">
+                    <div class="glass glass-hover p-6 rounded-2xl border-l-4 border-emerald-400">
+                        <h3 class="text-lg font-bold text-emerald-400 mb-3 flex items-center">
+                            <i class="fas fa-rocket mr-2"></i> Currently Building
                         </h3>
-                        <ul class="space-y-3 text-gray-300">
-                            <li class="flex items-center"><i class="fas fa-check text-emerald-400 mr-3"></i> Self-Motivated Learner</li>
-                            <li class="flex items-center"><i class="fas fa-check text-emerald-400 mr-3"></i> Problem Solver</li>
-                            <li class="flex items-center"><i class="fas fa-check text-emerald-400 mr-3"></i> Attention to Detail</li>
-                            <li class="flex items-center"><i class="fas fa-check text-emerald-400 mr-3"></i> Time Management</li>
-                            <li class="flex items-center"><i class="fas fa-check text-emerald-400 mr-3"></i> Adaptability</li>
-                            <li class="flex items-center"><i class="fas fa-check text-emerald-400 mr-3"></i> Clear Communication</li>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li><i class="fas fa-check text-emerald-400 mr-2"></i>Real-time chat with Socket.io</li>
+                            <li><i class="fas fa-check text-emerald-400 mr-2"></i>Analytics dashboard (Chart.js)</li>
+                            <li><i class="fas fa-check text-emerald-400 mr-2"></i>Advanced auth patterns</li>
                         </ul>
                     </div>
 
-                    <div class="glass glass-hover p-8 rounded-2xl">
-                        <h3 class="text-xl font-bold text-emerald-400 mb-6">
-                            <i class="fas fa-globe mr-2"></i> Languages & Availability
+                    <div class="glass glass-hover p-6 rounded-2xl border-l-4 border-cyan-400">
+                        <h3 class="text-lg font-bold text-cyan-400 mb-3 flex items-center">
+                            <i class="fas fa-book mr-2"></i> Currently Learning
                         </h3>
-                        <ul class="space-y-3 text-gray-300 mb-6">
-                            <li><span class="font-semibold">Hindi:</span> Native</li>
-                            <li><span class="font-semibold">English:</span> Professional Working Proficiency</li>
-                            <li><span class="font-semibold">Urdu:</span> Fluent</li>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li><i class="fas fa-check text-cyan-400 mr-2"></i>Docker & containerization</li>
+                            <li><i class="fas fa-check text-cyan-400 mr-2"></i>TypeScript strict mode</li>
+                            <li><i class="fas fa-check text-cyan-400 mr-2"></i>Kubernetes orchestration</li>
                         </ul>
-                        <div class="pt-6 border-t border-emerald-400/20">
-                            <p class="text-emerald-400 font-semibold mb-2">
-                                <i class="fas fa-briefcase mr-2"></i> Availability: Immediate Joiner
-                            </p>
-                            <p class="text-gray-400 text-sm">
-                                Preferred locations: Remote, Bangalore, Noida, Hyderabad, Pune, Delhi NCR
-                            </p>
-                        </div>
+                    </div>
+
+                    <div class="glass glass-hover p-6 rounded-2xl border-l-4 border-purple-400">
+                        <h3 class="text-lg font-bold text-purple-400 mb-3 flex items-center">
+                            <i class="fas fa-star mr-2"></i> Core Values
+                        </h3>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li><i class="fas fa-check text-purple-400 mr-2"></i>Code quality over speed</li>
+                            <li><i class="fas fa-check text-purple-400 mr-2"></i>User-first thinking</li>
+                            <li><i class="fas fa-check text-purple-400 mr-2"></i>Continuous improvement</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Quick Facts -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="glass p-4 rounded-lg text-center border border-emerald-400/20">
+                        <p class="text-2xl font-bold text-emerald-400">50+</p>
+                        <p class="text-gray-400 text-sm">Active Users</p>
+                    </div>
+                    <div class="glass p-4 rounded-lg text-center border border-cyan-400/20">
+                        <p class="text-2xl font-bold text-cyan-400">500+</p>
+                        <p class="text-gray-400 text-sm">Records Managed</p>
+                    </div>
+                    <div class="glass p-4 rounded-lg text-center border border-purple-400/20">
+                        <p class="text-2xl font-bold text-purple-400">50%</p>
+                        <p class="text-gray-400 text-sm">Response Time ↓</p>
+                    </div>
+                    <div class="glass p-4 rounded-lg text-center border border-pink-400/20">
+                        <p class="text-2xl font-bold text-pink-400">99.9%</p>
+                        <p class="text-gray-400 text-sm">Uptime</p>
                     </div>
                 </div>
             </div>
@@ -500,92 +947,376 @@
 
         <!-- Skills Section -->
         <section id="skills" class="py-20 px-4 md:px-8">
-            <div class="max-w-4xl mx-auto">
+            <div class="max-w-6xl mx-auto">
                 <h2 class="text-4xl md:text-5xl font-bold mb-12 glow-text text-center">
                     <i class="fas fa-code mr-3"></i> Technical Skills
                 </h2>
 
-                <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Frontend Skills -->
+                <!-- Main Skills with Proficiency Bars -->
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <!-- Languages -->
                     <div class="glass glass-hover p-8 rounded-2xl">
-                        <h3 class="text-2xl font-bold text-emerald-400 mb-6">
-                            <i class="fas fa-palette mr-2"></i> Frontend Development
+                        <h3 class="text-2xl font-bold text-emerald-400 mb-8 flex items-center">
+                            <i class="fas fa-language mr-3"></i> Languages
                         </h3>
-                        <div class="flex flex-wrap">
-                            <span class="skill-chip">React.js</span>
-                            <span class="skill-chip">JavaScript (ES6+)</span>
-                            <span class="skill-chip">Redux</span>
-                            <span class="skill-chip">HTML5</span>
-                            <span class="skill-chip">CSS3</span>
-                            <span class="skill-chip">Tailwind CSS</span>
-                            <span class="skill-chip">Bootstrap</span>
-                            <span class="skill-chip">Responsive Design</span>
+                        <div class="space-y-6">
+                            <!-- JavaScript -->
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-300 font-semibold flex items-center">
+                                        <i class="fab fa-js text-yellow-400 mr-2"></i> JavaScript
+                                    </span>
+                                    <span class="text-emerald-400 text-sm font-bold">95%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-yellow-400 to-emerald-400 h-2 rounded-full transition-all duration-500" style="width: 95%"></div>
+                                </div>
+                            </div>
+
+                            <!-- PHP -->
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-300 font-semibold flex items-center">
+                                        <i class="fab fa-php text-purple-400 mr-2"></i> PHP
+                                    </span>
+                                    <span class="text-emerald-400 text-sm font-bold">85%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-purple-400 to-emerald-400 h-2 rounded-full transition-all duration-500" style="width: 85%"></div>
+                                </div>
+                            </div>
+
+                            <!-- HTML/CSS -->
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-300 font-semibold flex items-center">
+                                        <i class="fab fa-html5 text-orange-400 mr-2"></i> HTML/CSS
+                                    </span>
+                                    <span class="text-emerald-400 text-sm font-bold">90%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-orange-400 to-emerald-400 h-2 rounded-full transition-all duration-500" style="width: 90%"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Backend Skills -->
+                    <!-- Frontend Technologies -->
                     <div class="glass glass-hover p-8 rounded-2xl">
-                        <h3 class="text-2xl font-bold text-emerald-400 mb-6">
-                            <i class="fas fa-server mr-2"></i> Backend Development
+                        <h3 class="text-2xl font-bold text-cyan-400 mb-8 flex items-center">
+                            <i class="fas fa-palette mr-3"></i> Frontend
                         </h3>
-                        <div class="flex flex-wrap">
-                            <span class="skill-chip">Laravel</span>
-                            <span class="skill-chip">PHP</span>
-                            <span class="skill-chip">Node.js</span>
-                            <span class="skill-chip">Express.js</span>
-                            <span class="skill-chip">RESTful APIs</span>
-                            <span class="skill-chip">Sanctum</span>
-                            <span class="skill-chip">JWT Auth</span>
+                        <div class="space-y-6">
+                            <!-- React -->
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-300 font-semibold flex items-center">
+                                        <i class="fab fa-react text-cyan-400 mr-2"></i> React.js
+                                    </span>
+                                    <span class="text-cyan-400 text-sm font-bold">90%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-cyan-400 to-cyan-500 h-2 rounded-full transition-all duration-500" style="width: 90%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Tailwind CSS -->
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-300 font-semibold flex items-center">
+                                        <i class="fas fa-wind text-cyan-300 mr-2"></i> Tailwind CSS
+                                    </span>
+                                    <span class="text-cyan-400 text-sm font-bold">88%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-cyan-300 to-cyan-400 h-2 rounded-full transition-all duration-500" style="width: 88%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Redux -->
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-300 font-semibold flex items-center">
+                                        <i class="fas fa-store text-purple-500 mr-2"></i> Redux
+                                    </span>
+                                    <span class="text-cyan-400 text-sm font-bold">82%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-purple-500 to-cyan-400 h-2 rounded-full transition-all duration-500" style="width: 82%"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Database & Payment -->
+                    <!-- Backend Technologies -->
                     <div class="glass glass-hover p-8 rounded-2xl">
-                        <h3 class="text-2xl font-bold text-emerald-400 mb-6">
-                            <i class="fas fa-database mr-2"></i> Database & Payments
+                        <h3 class="text-2xl font-bold text-green-400 mb-8 flex items-center">
+                            <i class="fas fa-server mr-3"></i> Backend
                         </h3>
-                        <div class="flex flex-wrap">
-                            <span class="skill-chip">MySQL</span>
-                            <span class="skill-chip">MongoDB</span>
-                            <span class="skill-chip">Database Design</span>
-                            <span class="skill-chip">Query Optimization</span>
-                            <span class="skill-chip">Razorpay</span>
-                            <span class="skill-chip">Webhooks</span>
-                            <span class="skill-chip">Transaction Mgmt</span>
+                        <div class="space-y-6">
+                            <!-- Laravel -->
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-300 font-semibold flex items-center">
+                                        <i class="fab fa-laravel text-red-400 mr-2"></i> Laravel
+                                    </span>
+                                    <span class="text-green-400 text-sm font-bold">92%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-red-400 to-green-400 h-2 rounded-full transition-all duration-500" style="width: 92%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Node.js -->
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-300 font-semibold flex items-center">
+                                        <i class="fab fa-node-js text-green-500 mr-2"></i> Node.js
+                                    </span>
+                                    <span class="text-green-400 text-sm font-bold">85%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-green-500 to-green-400 h-2 rounded-full transition-all duration-500" style="width: 85%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Express.js -->
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-300 font-semibold flex items-center">
+                                        <i class="fas fa-cube text-gray-300 mr-2"></i> Express.js
+                                    </span>
+                                    <span class="text-green-400 text-sm font-bold">84%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-gray-300 to-green-400 h-2 rounded-full transition-all duration-500" style="width: 84%"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Tools & DevOps -->
+                    <!-- Database & Tools -->
                     <div class="glass glass-hover p-8 rounded-2xl">
-                        <h3 class="text-2xl font-bold text-emerald-400 mb-6">
-                            <i class="fas fa-tools mr-2"></i> Tools & DevOps
+                        <h3 class="text-2xl font-bold text-blue-400 mb-8 flex items-center">
+                            <i class="fas fa-database mr-3"></i> Database & Tools
                         </h3>
-                        <div class="flex flex-wrap">
-                            <span class="skill-chip">Git & GitHub</span>
-                            <span class="skill-chip">VS Code</span>
-                            <span class="skill-chip">Postman</span>
-                            <span class="skill-chip">Composer</span>
-                            <span class="skill-chip">npm</span>
-                            <span class="skill-chip">Vercel</span>
-                            <span class="skill-chip">Railway</span>
-                            <span class="skill-chip">CI/CD</span>
+                        <div class="space-y-6">
+                            <!-- MySQL -->
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-300 font-semibold flex items-center">
+                                        <i class="fas fa-database text-blue-400 mr-2"></i> MySQL
+                                    </span>
+                                    <span class="text-blue-400 text-sm font-bold">90%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-blue-400 to-cyan-400 h-2 rounded-full transition-all duration-500" style="width: 90%"></div>
+                                </div>
+                            </div>
+
+                            <!-- MongoDB -->
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-300 font-semibold flex items-center">
+                                        <i class="fas fa-leaf text-green-600 mr-2"></i> MongoDB
+                                    </span>
+                                    <span class="text-blue-400 text-sm font-bold">80%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-green-600 to-blue-400 h-2 rounded-full transition-all duration-500" style="width: 80%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Git -->
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-300 font-semibold flex items-center">
+                                        <i class="fab fa-git-alt text-orange-500 mr-2"></i> Git & GitHub
+                                    </span>
+                                    <span class="text-blue-400 text-sm font-bold">92%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-orange-500 to-blue-400 h-2 rounded-full transition-all duration-500" style="width: 92%"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Specializations -->
-                    <div class="glass glass-hover p-8 rounded-2xl md:col-span-2">
-                        <h3 class="text-2xl font-bold text-emerald-400 mb-6">
-                            <i class="fas fa-rocket mr-2"></i> Specializations
-                        </h3>
-                        <div class="flex flex-wrap">
-                            <span class="skill-chip">Full-Stack Development</span>
-                            <span class="skill-chip">LAMP Stack</span>
-                            <span class="skill-chip">API Integration</span>
-                            <span class="skill-chip">Agile Development</span>
-                            <span class="skill-chip">Problem Solving</span>
-                            <span class="skill-chip">Payment Integration</span>
-                            <span class="skill-chip">EdTech Solutions</span>
-                            <span class="skill-chip">Component Architecture</span>
+                <!-- All Technologies Grid (Icon-based) -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold text-white mb-8 text-center">Tech Stack Overview</h3>
+                    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">
+                        <!-- React -->
+                        <div class="skill-icon-card group" title="React.js">
+                            <div class="skill-icon-bg group-hover:bg-cyan-400/30">
+                                <i class="fab fa-react text-3xl text-cyan-400"></i>
+                            </div>
+                            <p class="text-xs text-gray-300 text-center mt-2 font-semibold">React</p>
+                            <span class="skill-experience">Expert</span>
+                        </div>
+
+                        <!-- JavaScript -->
+                        <div class="skill-icon-card group" title="JavaScript">
+                            <div class="skill-icon-bg group-hover:bg-yellow-400/30">
+                                <i class="fab fa-js text-3xl text-yellow-400"></i>
+                            </div>
+                            <p class="text-xs text-gray-300 text-center mt-2 font-semibold">JS</p>
+                            <span class="skill-experience">Expert</span>
+                        </div>
+
+                        <!-- Laravel -->
+                        <div class="skill-icon-card group" title="Laravel">
+                            <div class="skill-icon-bg group-hover:bg-red-400/30">
+                                <i class="fab fa-laravel text-3xl text-red-400"></i>
+                            </div>
+                            <p class="text-xs text-gray-300 text-center mt-2 font-semibold">Laravel</p>
+                            <span class="skill-experience">Expert</span>
+                        </div>
+
+                        <!-- PHP -->
+                        <div class="skill-icon-card group" title="PHP">
+                            <div class="skill-icon-bg group-hover:bg-purple-400/30">
+                                <i class="fab fa-php text-3xl text-purple-400"></i>
+                            </div>
+                            <p class="text-xs text-gray-300 text-center mt-2 font-semibold">PHP</p>
+                            <span class="skill-experience">Advanced</span>
+                        </div>
+
+                        <!-- Node.js -->
+                        <div class="skill-icon-card group" title="Node.js">
+                            <div class="skill-icon-bg group-hover:bg-green-500/30">
+                                <i class="fab fa-node-js text-3xl text-green-500"></i>
+                            </div>
+                            <p class="text-xs text-gray-300 text-center mt-2 font-semibold">Node</p>
+                            <span class="skill-experience">Advanced</span>
+                        </div>
+
+                        <!-- MongoDB -->
+                        <div class="skill-icon-card group" title="MongoDB">
+                            <div class="skill-icon-bg group-hover:bg-green-600/30">
+                                <i class="fas fa-leaf text-3xl text-green-600"></i>
+                            </div>
+                            <p class="text-xs text-gray-300 text-center mt-2 font-semibold">MongoDB</p>
+                            <span class="skill-experience">Intermediate</span>
+                        </div>
+
+                        <!-- MySQL -->
+                        <div class="skill-icon-card group" title="MySQL">
+                            <div class="skill-icon-bg group-hover:bg-blue-400/30">
+                                <i class="fas fa-database text-3xl text-blue-400"></i>
+                            </div>
+                            <p class="text-xs text-gray-300 text-center mt-2 font-semibold">MySQL</p>
+                            <span class="skill-experience">Expert</span>
+                        </div>
+
+                        <!-- Tailwind CSS -->
+                        <div class="skill-icon-card group" title="Tailwind CSS">
+                            <div class="skill-icon-bg group-hover:bg-cyan-300/30">
+                                <i class="fas fa-wind text-3xl text-cyan-300"></i>
+                            </div>
+                            <p class="text-xs text-gray-300 text-center mt-2 font-semibold">Tailwind</p>
+                            <span class="skill-experience">Expert</span>
+                        </div>
+
+                        <!-- Git -->
+                        <div class="skill-icon-card group" title="Git & GitHub">
+                            <div class="skill-icon-bg group-hover:bg-orange-500/30">
+                                <i class="fab fa-git-alt text-3xl text-orange-500"></i>
+                            </div>
+                            <p class="text-xs text-gray-300 text-center mt-2 font-semibold">Git</p>
+                            <span class="skill-experience">Expert</span>
+                        </div>
+
+                        <!-- Postman -->
+                        <div class="skill-icon-card group" title="Postman">
+                            <div class="skill-icon-bg group-hover:bg-orange-600/30">
+                                <i class="fas fa-rocket text-3xl text-orange-600"></i>
+                            </div>
+                            <p class="text-xs text-gray-300 text-center mt-2 font-semibold">Postman</p>
+                            <span class="skill-experience">Advanced</span>
+                        </div>
+
+                        <!-- Redux -->
+                        <div class="skill-icon-card group" title="Redux">
+                            <div class="skill-icon-bg group-hover:bg-purple-500/30">
+                                <i class="fas fa-store text-3xl text-purple-500"></i>
+                            </div>
+                            <p class="text-xs text-gray-300 text-center mt-2 font-semibold">Redux</p>
+                            <span class="skill-experience">Intermediate</span>
+                        </div>
+
+                        <!-- VS Code -->
+                        <div class="skill-icon-card group" title="VS Code">
+                            <div class="skill-icon-bg group-hover:bg-blue-500/30">
+                                <i class="fas fa-code text-3xl text-blue-500"></i>
+                            </div>
+                            <p class="text-xs text-gray-300 text-center mt-2 font-semibold">VS Code</p>
+                            <span class="skill-experience">Daily Use</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Currently Learning Section -->
+                <div class="glass glass-hover p-8 rounded-2xl border-2 border-yellow-400/20 bg-gradient-to-br from-yellow-400/5 to-orange-400/5">
+                    <div class="flex items-center mb-8">
+                        <i class="fas fa-graduation-cap text-3xl text-yellow-400 mr-4"></i>
+                        <h3 class="text-2xl font-bold text-yellow-300">Currently Learning</h3>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Docker -->
+                        <div class="flex items-start gap-4 p-4 rounded-lg bg-yellow-400/10 border border-yellow-400/20">
+                            <i class="fab fa-docker text-3xl text-blue-500 flex-shrink-0 mt-1"></i>
+                            <div>
+                                <h4 class="text-lg font-bold text-yellow-300 mb-1">Docker</h4>
+                                <p class="text-gray-400 text-sm">Containerization and orchestration for scalable deployments</p>
+                            </div>
+                        </div>
+
+                        <!-- TypeScript -->
+                        <div class="flex items-start gap-4 p-4 rounded-lg bg-yellow-400/10 border border-yellow-400/20">
+                            <i class="fab fa-js text-3xl text-blue-600 flex-shrink-0 mt-1"></i>
+                            <div>
+                                <h4 class="text-lg font-bold text-yellow-300 mb-1">TypeScript</h4>
+                                <p class="text-gray-400 text-sm">Static typing for robust and maintainable JavaScript code</p>
+                            </div>
+                        </div>
+
+                        <!-- Kubernetes -->
+                        <div class="flex items-start gap-4 p-4 rounded-lg bg-yellow-400/10 border border-yellow-400/20">
+                            <i class="fas fa-cube text-3xl text-blue-400 flex-shrink-0 mt-1"></i>
+                            <div>
+                                <h4 class="text-lg font-bold text-yellow-300 mb-1">Kubernetes</h4>
+                                <p class="text-gray-400 text-sm">Container orchestration for advanced deployment strategies</p>
+                            </div>
+                        </div>
+
+                        <!-- GraphQL -->
+                        <div class="flex items-start gap-4 p-4 rounded-lg bg-yellow-400/10 border border-yellow-400/20">
+                            <i class="fas fa-project-diagram text-3xl text-pink-400 flex-shrink-0 mt-1"></i>
+                            <div>
+                                <h4 class="text-lg font-bold text-yellow-300 mb-1">GraphQL</h4>
+                                <p class="text-gray-400 text-sm">Modern API query language for flexible data fetching</p>
+                            </div>
+                        </div>
+
+                        <!-- Next.js -->
+                        <div class="flex items-start gap-4 p-4 rounded-lg bg-yellow-400/10 border border-yellow-400/20">
+                            <i class="fas fa-forward text-3xl text-gray-300 flex-shrink-0 mt-1"></i>
+                            <div>
+                                <h4 class="text-lg font-bold text-yellow-300 mb-1">Next.js</h4>
+                                <p class="text-gray-400 text-sm">Full-stack React framework with SSR and optimization</p>
+                            </div>
+                        </div>
+
+                        <!-- AWS -->
+                        <div class="flex items-start gap-4 p-4 rounded-lg bg-yellow-400/10 border border-yellow-400/20">
+                            <i class="fab fa-aws text-3xl text-orange-400 flex-shrink-0 mt-1"></i>
+                            <div>
+                                <h4 class="text-lg font-bold text-yellow-300 mb-1">AWS</h4>
+                                <p class="text-gray-400 text-sm">Cloud infrastructure and services for production apps</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -594,163 +1325,531 @@
 
         <!-- Projects Section -->
         <section id="projects" class="py-20 px-4 md:px-8">
-            <div class="max-w-5xl mx-auto">
-                <h2 class="text-4xl md:text-5xl font-bold mb-12 glow-text text-center">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8 glow-text text-center">
                     <i class="fas fa-project-diagram mr-3"></i> Featured Projects
                 </h2>
 
-                <!-- Featured Project: CourseLab -->
-                <div class="glass glass-hover p-8 md:p-12 rounded-2xl mb-12 card-3d">
-                    <div class="grid md:grid-cols-2 gap-8 items-center mb-8">
-                        <div>
-                            <div class="inline-block bg-emerald-400/20 text-emerald-400 px-4 py-2 rounded-full text-sm font-semibold mb-4">
-                                <i class="fas fa-star mr-2"></i> Featured Project
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap justify-center gap-3 mb-12">
+                    <button class="filter-btn active" data-filter="all" aria-pressed="true">
+                        <i class="fas fa-th mr-2"></i> All
+                    </button>
+                    <button class="filter-btn" data-filter="full-stack" aria-pressed="false">
+                        <i class="fas fa-layer-group mr-2"></i> Full Stack
+                    </button>
+                    <button class="filter-btn" data-filter="frontend" aria-pressed="false">
+                        <i class="fas fa-palette mr-2"></i> Frontend
+                    </button>
+                    <button class="filter-btn" data-filter="backend" aria-pressed="false">
+                        <i class="fas fa-server mr-2"></i> Backend
+                    </button>
+                </div>
+
+                <!-- Featured Project: CourseLab (Full Width) -->
+                <div class="project-card featured-project mb-12 glass p-8 md:p-12 rounded-2xl card-3d transition-all" data-category="full-stack">
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Left: Info & Stats -->
+                        <div class="md:col-span-2">
+                            <div class="inline-flex items-center gap-2 bg-emerald-400/20 text-emerald-400 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                                <i class="fas fa-star"></i> Featured Project
                             </div>
-                            <h3 class="text-3xl font-bold text-white mb-4">CourseLab</h3>
+                            <h3 class="text-3xl md:text-4xl font-bold text-white mb-2">CourseLab</h3>
                             <p class="text-gray-300 text-lg leading-relaxed mb-6">
-                                A production-ready, Physics Wallah-inspired EdTech SaaS platform enabling users to browse, purchase, and access educational content with video streaming, quizzes, and certificates.
+                                Production-ready EdTech SaaS platform with video streaming, payment integration, and live user management. Built with React, Laravel, and MySQL.
                             </p>
 
-                            <!-- Key Metrics -->
-                            <div class="grid grid-cols-2 gap-4 mb-8">
-                                <div class="bg-emerald-400/10 p-4 rounded-lg border border-emerald-400/20">
-                                    <p class="text-emerald-400 font-bold text-2xl">50+</p>
-                                    <p class="text-gray-400 text-sm">Active Users</p>
+                            <!-- Stats Dashboard -->
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                                <div class="bg-emerald-400/10 p-4 rounded-lg border border-emerald-400/20 text-center">
+                                    <p class="text-emerald-400 font-bold text-3xl">50+</p>
+                                    <p class="text-gray-400 text-xs">Users</p>
                                 </div>
-                                <div class="bg-emerald-400/10 p-4 rounded-lg border border-emerald-400/20">
-                                    <p class="text-emerald-400 font-bold text-2xl">30%</p>
-                                    <p class="text-gray-400 text-sm">Engagement Boost</p>
+                                <div class="bg-cyan-400/10 p-4 rounded-lg border border-cyan-400/20 text-center">
+                                    <p class="text-cyan-400 font-bold text-3xl">30%</p>
+                                    <p class="text-gray-400 text-xs">Engagement</p>
                                 </div>
-                                <div class="bg-emerald-400/10 p-4 rounded-lg border border-emerald-400/20">
-                                    <p class="text-emerald-400 font-bold text-2xl">90+</p>
-                                    <p class="text-gray-400 text-sm">Lighthouse Score</p>
+                                <div class="bg-purple-400/10 p-4 rounded-lg border border-purple-400/20 text-center">
+                                    <p class="text-purple-400 font-bold text-3xl">90+</p>
+                                    <p class="text-gray-400 text-xs">Lighthouse</p>
                                 </div>
-                                <div class="bg-emerald-400/10 p-4 rounded-lg border border-emerald-400/20">
-                                    <p class="text-emerald-400 font-bold text-2xl">99.9%</p>
-                                    <p class="text-gray-400 text-sm">Uptime</p>
-                                </div>
-                            </div>
-
-                            <!-- Tech Stack -->
-                            <div class="mb-8">
-                                <h4 class="text-lg font-semibold text-gray-300 mb-3">Tech Stack:</h4>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="skill-chip">React.js</span>
-                                    <span class="skill-chip">Laravel 10</span>
-                                    <span class="skill-chip">MySQL</span>
-                                    <span class="skill-chip">Razorpay</span>
-                                    <span class="skill-chip">Tailwind CSS</span>
-                                    <span class="skill-chip">Vercel</span>
-                                    <span class="skill-chip">Railway</span>
+                                <div class="bg-pink-400/10 p-4 rounded-lg border border-pink-400/20 text-center">
+                                    <p class="text-pink-400 font-bold text-3xl">99.9%</p>
+                                    <p class="text-gray-400 text-xs">Uptime</p>
                                 </div>
                             </div>
 
-                            <!-- Key Features -->
-                            <div class="mb-8">
-                                <h4 class="text-lg font-semibold text-gray-300 mb-3">Key Features:</h4>
-                                <ul class="space-y-2 text-gray-400">
-                                    <li><i class="fas fa-check text-emerald-400 mr-2"></i>User registration/login with JWT tokens</li>
-                                    <li><i class="fas fa-check text-emerald-400 mr-2"></i>Advanced course search & filtering with pagination</li>
-                                    <li><i class="fas fa-check text-emerald-400 mr-2"></i>Shopping cart with session persistence</li>
-                                    <li><i class="fas fa-check text-emerald-400 mr-2"></i>Razorpay payment integration with webhook verification</li>
-                                    <li><i class="fas fa-check text-emerald-400 mr-2"></i>Student dashboard with enrollment tracking</li>
-                                    <li><i class="fas fa-check text-emerald-400 mr-2"></i>Admin panel for course & user management</li>
+                            <!-- Tech Stack Icons -->
+                            <div class="mb-6">
+                                <p class="text-gray-300 text-sm font-semibold mb-3">Tech Stack:</p>
+                                <div class="flex flex-wrap gap-3">
+                                    <div class="tech-icon-wrapper" title="React.js">
+                                        <i class="fab fa-react text-lg text-cyan-400"></i>
+                                        <span class="tech-tooltip">React</span>
+                                    </div>
+                                    <div class="tech-icon-wrapper" title="Laravel">
+                                        <i class="fab fa-laravel text-lg text-red-400"></i>
+                                        <span class="tech-tooltip">Laravel</span>
+                                    </div>
+                                    <div class="tech-icon-wrapper" title="MySQL">
+                                        <i class="fas fa-database text-lg text-blue-400"></i>
+                                        <span class="tech-tooltip">MySQL</span>
+                                    </div>
+                                    <div class="tech-icon-wrapper" title="Tailwind CSS">
+                                        <i class="fas fa-css3-alt text-lg text-cyan-300"></i>
+                                        <span class="tech-tooltip">Tailwind</span>
+                                    </div>
+                                    <div class="tech-icon-wrapper" title="Razorpay">
+                                        <i class="fas fa-credit-card text-lg text-emerald-400"></i>
+                                        <span class="tech-tooltip">Razorpay</span>
+                                    </div>
+                                    <div class="tech-icon-wrapper" title="Vercel">
+                                        <i class="fas fa-cloud text-lg text-white"></i>
+                                        <span class="tech-tooltip">Vercel</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Key Features (Collapsible on mobile) -->
+                            <div class="mb-6 hidden md:block">
+                                <p class="text-gray-300 text-sm font-semibold mb-3">Key Features:</p>
+                                <ul class="grid grid-cols-2 gap-3 text-gray-400 text-sm">
+                                    <li><i class="fas fa-check text-emerald-400 mr-2"></i>JWT Auth</li>
+                                    <li><i class="fas fa-check text-emerald-400 mr-2"></i>Payment Gateway</li>
+                                    <li><i class="fas fa-check text-emerald-400 mr-2"></i>Course Management</li>
+                                    <li><i class="fas fa-check text-emerald-400 mr-2"></i>User Dashboard</li>
+                                    <li><i class="fas fa-check text-emerald-400 mr-2"></i>Admin Panel</li>
+                                    <li><i class="fas fa-check text-emerald-400 mr-2"></i>Analytics</li>
                                 </ul>
                             </div>
 
-                            <!-- Highlights -->
-                            <div class="bg-cyan-400/10 border border-cyan-400/20 p-4 rounded-lg mb-8">
-                                <p class="text-gray-300 text-sm">
-                                    <span class="text-cyan-400 font-semibold">12-week Solo Development:</span> Built end-to-end from concept to deployment. Designed normalized MySQL schema managing 500+ records with optimized queries reducing response time by 50%. Implemented role-based access control (Student, Instructor, Admin) with zero payment failures.
-                                </p>
-                            </div>
-
-                            <!-- Links -->
-                            <div class="flex flex-col sm:flex-row gap-4">
-                                <a href="https://courselab-demo.vercel.app" target="_blank" rel="noopener noreferrer" class="glow-btn" aria-label="View CourseLab Live Demo">
+                            <!-- Buttons -->
+                            <div class="flex flex-col sm:flex-row gap-3 flex-wrap">
+                                <a href="https://courselab-demo.vercel.app" target="_blank" rel="noopener noreferrer" class="glow-btn text-sm md:text-base py-2 px-4" aria-label="View Live Demo">
                                     <i class="fas fa-globe mr-2"></i> Live Demo
                                 </a>
-                                <a href="https://github.com/Mohammad-Zubair1/courselab" target="_blank" rel="noopener noreferrer" class="glow-btn btn-secondary" aria-label="View CourseLab GitHub">
-                                    <i class="fab fa-github mr-2"></i> GitHub Repo
+                                <a href="https://github.com/Mohammad-Zubair1/courselab" target="_blank" rel="noopener noreferrer" class="glow-btn btn-secondary text-sm md:text-base py-2 px-4" aria-label="View GitHub Repository">
+                                    <i class="fab fa-github mr-2"></i> GitHub
                                 </a>
+                                <button class="glow-btn btn-secondary text-sm md:text-base py-2 px-4 view-details-btn" aria-label="View Project Details">
+                                    <i class="fas fa-arrow-right mr-2"></i> Details
+                                </button>
                             </div>
                         </div>
 
-                        <div class="hidden md:block">
-                            <div class="glass p-6 rounded-xl">
-                                <div class="bg-gradient-to-br from-emerald-400/20 to-cyan-400/20 aspect-video rounded-lg flex items-center justify-center border border-emerald-400/30">
-                                    <img src="screenshots/shot2.png" alt="CourseLab Project Screenshot" width="1280" height="720" loading="lazy" class="rounded-lg">
+                        <!-- Right: Screenshot -->
+                        <div class="hidden md:block rounded-xl overflow-hidden">
+                            <img src="screenshots/shot2.png" alt="CourseLab screenshot" width="1280" height="720" loading="lazy" class="w-full h-full object-cover rounded-xl hover:scale-110 transition-transform duration-300">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Cards Grid -->
+                <div class="projects-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                    <!-- Task Management App -->
+                    <div class="project-card glass rounded-2xl overflow-hidden transition-all hover:shadow-2xl hover:shadow-emerald-400/20 card-3d" data-category="full-stack">
+                        <div class="relative h-48 bg-gradient-to-br from-emerald-400/10 to-cyan-400/10 border-b border-emerald-400/20 flex items-center justify-center overflow-hidden group">
+                            <i class="fas fa-tasks text-6xl text-emerald-400/20 group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-start justify-between mb-3">
+                                <h4 class="text-xl font-bold text-white">Task Manager</h4>
+                                <span class="inline-flex items-center gap-1 text-xs bg-emerald-400/20 text-emerald-300 px-2 py-1 rounded-full">
+                                    <i class="fas fa-layer-group"></i> Full Stack
+                                </span>
+                            </div>
+                            <p class="text-gray-400 text-sm mb-4 line-clamp-2">
+                                RESTful API with drag-and-drop UI, real-time updates, and JWT authentication.
+                            </p>
+
+                            <!-- Tech Icons (Hidden until hover) -->
+                            <div class="flex gap-2 mb-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div class="tech-icon-wrapper" title="Node.js">
+                                    <i class="fab fa-node-js text-green-400"></i>
+                                    <span class="tech-tooltip">Node</span>
+                                </div>
+                                <div class="tech-icon-wrapper" title="Express">
+                                    <i class="fas fa-server text-gray-300"></i>
+                                    <span class="tech-tooltip">Express</span>
+                                </div>
+                                <div class="tech-icon-wrapper" title="MongoDB">
+                                    <i class="fas fa-leaf text-green-600"></i>
+                                    <span class="tech-tooltip">MongoDB</span>
+                                </div>
+                                <div class="tech-icon-wrapper" title="React">
+                                    <i class="fab fa-react text-cyan-400"></i>
+                                    <span class="tech-tooltip">React</span>
+                                </div>
+                            </div>
+
+                            <div class="text-gray-400 text-xs mb-4">
+                                <i class="fas fa-calendar text-emerald-400 mr-2"></i> May 2024 - June 2024
+                            </div>
+
+                            <!-- Action Buttons (Reveal on hover) -->
+                            <div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-y-0 translate-y-2">
+                                <a href="#" target="_blank" class="flex-1 text-center py-2 rounded-lg bg-emerald-400/20 text-emerald-300 hover:bg-emerald-400/30 text-sm font-semibold transition" aria-label="View demo">
+                                    <i class="fas fa-globe mr-1"></i> Demo
+                                </a>
+                                <a href="#" target="_blank" class="flex-1 text-center py-2 rounded-lg border border-emerald-400/30 text-emerald-300 hover:bg-emerald-400/10 text-sm font-semibold transition" aria-label="View GitHub">
+                                    <i class="fab fa-github mr-1"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Portfolio Website -->
+                    <div class="project-card glass rounded-2xl overflow-hidden transition-all hover:shadow-2xl hover:shadow-purple-400/20 card-3d" data-category="frontend">
+                        <div class="relative h-48 bg-gradient-to-br from-purple-400/10 to-pink-400/10 border-b border-purple-400/20 flex items-center justify-center overflow-hidden group">
+                            <i class="fas fa-portfolio text-6xl text-purple-400/20 group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-start justify-between mb-3">
+                                <h4 class="text-xl font-bold text-white">Portfolio Site</h4>
+                                <span class="inline-flex items-center gap-1 text-xs bg-purple-400/20 text-purple-300 px-2 py-1 rounded-full">
+                                    <i class="fas fa-palette"></i> Frontend
+                                </span>
+                            </div>
+                            <p class="text-gray-400 text-sm mb-4 line-clamp-2">
+                                Responsive portfolio with animations and 95+ Lighthouse score. Modern UI/UX.
+                            </p>
+
+                            <!-- Tech Icons -->
+                            <div class="flex gap-2 mb-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div class="tech-icon-wrapper" title="React">
+                                    <i class="fab fa-react text-cyan-400"></i>
+                                    <span class="tech-tooltip">React</span>
+                                </div>
+                                <div class="tech-icon-wrapper" title="Tailwind">
+                                    <i class="fas fa-css3-alt text-cyan-300"></i>
+                                    <span class="tech-tooltip">Tailwind</span>
+                                </div>
+                                <div class="tech-icon-wrapper" title="Framer Motion">
+                                    <i class="fas fa-magic text-pink-400"></i>
+                                    <span class="tech-tooltip">Motion</span>
+                                </div>
+                            </div>
+
+                            <div class="text-gray-400 text-xs mb-4">
+                                <i class="fas fa-calendar text-purple-400 mr-2"></i> July 2024 - August 2024
+                            </div>
+
+                            <!-- Action Buttons -->
+                            <div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-y-0 translate-y-2">
+                                <a href="#" target="_blank" class="flex-1 text-center py-2 rounded-lg bg-purple-400/20 text-purple-300 hover:bg-purple-400/30 text-sm font-semibold transition" aria-label="View demo">
+                                    <i class="fas fa-globe mr-1"></i> Demo
+                                </a>
+                                <a href="#" target="_blank" class="flex-1 text-center py-2 rounded-lg border border-purple-400/30 text-purple-300 hover:bg-purple-400/10 text-sm font-semibold transition" aria-label="View GitHub">
+                                    <i class="fab fa-github mr-1"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- E-Commerce Platform (Hidden by default, shown on Load More) -->
+                    <div class="project-card glass rounded-2xl overflow-hidden transition-all hover:shadow-2xl hover:shadow-amber-400/20 card-3d hidden" data-category="full-stack">
+                        <div class="relative h-48 bg-gradient-to-br from-amber-400/10 to-orange-400/10 border-b border-amber-400/20 flex items-center justify-center overflow-hidden group">
+                            <i class="fas fa-shopping-cart text-6xl text-amber-400/20 group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-start justify-between mb-3">
+                                <h4 class="text-xl font-bold text-white">E-Commerce Store</h4>
+                                <span class="inline-flex items-center gap-1 text-xs bg-amber-400/20 text-amber-300 px-2 py-1 rounded-full">
+                                    <i class="fas fa-layer-group"></i> Full Stack
+                                </span>
+                            </div>
+                            <p class="text-gray-400 text-sm mb-4 line-clamp-2">
+                                Complete shopping platform with inventory management and payment processing.
+                            </p>
+
+                            <!-- Tech Icons -->
+                            <div class="flex gap-2 mb-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div class="tech-icon-wrapper" title="Node.js">
+                                    <i class="fab fa-node-js text-green-400"></i>
+                                </div>
+                                <div class="tech-icon-wrapper" title="MongoDB">
+                                    <i class="fas fa-leaf text-green-600"></i>
+                                </div>
+                                <div class="tech-icon-wrapper" title="React">
+                                    <i class="fab fa-react text-cyan-400"></i>
+                                </div>
+                                <div class="tech-icon-wrapper" title="Stripe">
+                                    <i class="fas fa-credit-card text-purple-400"></i>
+                                </div>
+                            </div>
+
+                            <div class="text-gray-400 text-xs mb-4">
+                                <i class="fas fa-calendar text-amber-400 mr-2"></i> Coming Soon
+                            </div>
+
+                            <div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-y-0 translate-y-2">
+                                <button class="flex-1 py-2 rounded-lg bg-amber-400/20 text-amber-300 hover:bg-amber-400/30 text-sm font-semibold transition cursor-not-allowed opacity-50">
+                                    <i class="fas fa-building mr-1"></i> WIP
+                                </button>
+                                <a href="#" target="_blank" class="flex-1 text-center py-2 rounded-lg border border-amber-400/30 text-amber-300 hover:bg-amber-400/10 text-sm font-semibold transition" aria-label="View GitHub">
+                                    <i class="fab fa-github mr-1"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Real-time Chat Application (Hidden by default) -->
+                    <div class="project-card glass rounded-2xl overflow-hidden transition-all hover:shadow-2xl hover:shadow-blue-400/20 card-3d hidden" data-category="full-stack">
+                        <div class="relative h-48 bg-gradient-to-br from-blue-400/10 to-cyan-400/10 border-b border-blue-400/20 flex items-center justify-center overflow-hidden group">
+                            <i class="fas fa-comments text-6xl text-blue-400/20 group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-start justify-between mb-3">
+                                <h4 class="text-xl font-bold text-white">Real-time Chat</h4>
+                                <span class="inline-flex items-center gap-1 text-xs bg-blue-400/20 text-blue-300 px-2 py-1 rounded-full">
+                                    <i class="fas fa-layer-group"></i> Full Stack
+                                </span>
+                            </div>
+                            <p class="text-gray-400 text-sm mb-4 line-clamp-2">
+                                Real-time messaging platform with typing indicators, user presence, and message history.
+                            </p>
+
+                            <!-- Tech Icons -->
+                            <div class="flex gap-2 mb-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div class="tech-icon-wrapper" title="React">
+                                    <i class="fab fa-react text-cyan-400"></i>
+                                    <span class="tech-tooltip">React</span>
+                                </div>
+                                <div class="tech-icon-wrapper" title="Node.js">
+                                    <i class="fab fa-node-js text-green-400"></i>
+                                    <span class="tech-tooltip">Node</span>
+                                </div>
+                                <div class="tech-icon-wrapper" title="Socket.io">
+                                    <i class="fas fa-plug text-yellow-400"></i>
+                                    <span class="tech-tooltip">Socket.io</span>
+                                </div>
+                                <div class="tech-icon-wrapper" title="MongoDB">
+                                    <i class="fas fa-leaf text-green-600"></i>
+                                    <span class="tech-tooltip">MongoDB</span>
+                                </div>
+                            </div>
+
+                            <!-- Key Features (Hidden until hover) -->
+                            <div class="hidden group-hover:block mb-4 text-gray-300 text-xs space-y-1">
+                                <p><i class="fas fa-check text-blue-400 mr-2"></i>Real-time messaging</p>
+                                <p><i class="fas fa-check text-blue-400 mr-2"></i>Typing indicators</p>
+                                <p><i class="fas fa-check text-blue-400 mr-2"></i>User authentication</p>
+                                <p><i class="fas fa-check text-blue-400 mr-2"></i>Message history</p>
+                            </div>
+
+                            <div class="text-gray-400 text-xs mb-4">
+                                <i class="fas fa-calendar text-blue-400 mr-2"></i> Aug 2024 - Sept 2024
+                            </div>
+
+                            <!-- Action Buttons -->
+                            <div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-y-0 translate-y-2">
+                                <a href="#" target="_blank" class="flex-1 text-center py-2 rounded-lg bg-blue-400/20 text-blue-300 hover:bg-blue-400/30 text-sm font-semibold transition" aria-label="View demo">
+                                    <i class="fas fa-globe mr-1"></i> Demo
+                                </a>
+                                <a href="#" target="_blank" class="flex-1 text-center py-2 rounded-lg border border-blue-400/30 text-blue-300 hover:bg-blue-400/10 text-sm font-semibold transition" aria-label="View GitHub">
+                                    <i class="fab fa-github mr-1"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Expense Tracker with Analytics (Hidden by default) -->
+                    <div class="project-card glass rounded-2xl overflow-hidden transition-all hover:shadow-2xl hover:shadow-indigo-400/20 card-3d hidden" data-category="full-stack">
+                        <div class="relative h-48 bg-gradient-to-br from-indigo-400/10 to-purple-400/10 border-b border-indigo-400/20 flex items-center justify-center overflow-hidden group">
+                            <i class="fas fa-chart-pie text-6xl text-indigo-400/20 group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-start justify-between mb-3">
+                                <h4 class="text-xl font-bold text-white">Expense Tracker</h4>
+                                <span class="inline-flex items-center gap-1 text-xs bg-indigo-400/20 text-indigo-300 px-2 py-1 rounded-full">
+                                    <i class="fas fa-layer-group"></i> Full Stack
+                                </span>
+                            </div>
+                            <p class="text-gray-400 text-sm mb-4 line-clamp-2">
+                                Personal finance dashboard with expense categorization, analytics, and budget tracking.
+                            </p>
+
+                            <!-- Tech Icons -->
+                            <div class="flex gap-2 mb-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div class="tech-icon-wrapper" title="React">
+                                    <i class="fab fa-react text-cyan-400"></i>
+                                    <span class="tech-tooltip">React</span>
+                                </div>
+                                <div class="tech-icon-wrapper" title="Laravel">
+                                    <i class="fab fa-laravel text-red-400"></i>
+                                    <span class="tech-tooltip">Laravel</span>
+                                </div>
+                                <div class="tech-icon-wrapper" title="Chart.js">
+                                    <i class="fas fa-chart-bar text-indigo-400"></i>
+                                    <span class="tech-tooltip">Charts</span>
+                                </div>
+                                <div class="tech-icon-wrapper" title="MySQL">
+                                    <i class="fas fa-database text-blue-400"></i>
+                                    <span class="tech-tooltip">MySQL</span>
+                                </div>
+                            </div>
+
+                            <!-- Key Features (Hidden until hover) -->
+                            <div class="hidden group-hover:block mb-4 text-gray-300 text-xs space-y-1">
+                                <p><i class="fas fa-check text-indigo-400 mr-2"></i>Expense categorization</p>
+                                <p><i class="fas fa-check text-indigo-400 mr-2"></i>Monthly analytics</p>
+                                <p><i class="fas fa-check text-indigo-400 mr-2"></i>Budget alerts</p>
+                                <p><i class="fas fa-check text-indigo-400 mr-2"></i>CSV export</p>
+                            </div>
+
+                            <div class="text-gray-400 text-xs mb-4">
+                                <i class="fas fa-calendar text-indigo-400 mr-2"></i> Sept 2024 - Oct 2024
+                            </div>
+
+                            <!-- Action Buttons -->
+                            <div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-y-0 translate-y-2">
+                                <a href="#" target="_blank" class="flex-1 text-center py-2 rounded-lg bg-indigo-400/20 text-indigo-300 hover:bg-indigo-400/30 text-sm font-semibold transition" aria-label="View demo">
+                                    <i class="fas fa-globe mr-1"></i> Demo
+                                </a>
+                                <a href="#" target="_blank" class="flex-1 text-center py-2 rounded-lg border border-indigo-400/30 text-indigo-300 hover:bg-indigo-400/10 text-sm font-semibold transition" aria-label="View GitHub">
+                                    <i class="fab fa-github mr-1"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Load More Button -->
+                <div class="text-center">
+                    <button id="loadMoreBtn" class="glow-btn px-8 py-3 text-lg">
+                        <i class="fas fa-chevron-down mr-2"></i> Load More Projects
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- GitHub Statistics Section -->
+        <section id="github" class="py-20 px-4 md:px-8">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 glow-text text-center">
+                    <i class="fab fa-github mr-3"></i> GitHub Activity
+                </h2>
+
+                <!-- GitHub Stats Grid -->
+                <div class="grid md:grid-cols-3 gap-6 mb-12">
+                    <!-- Total Repositories -->
+                    <div class="glass glass-hover p-8 rounded-2xl text-center border border-cyan-400/20">
+                        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-cyan-400/10 mb-4">
+                            <i class="fas fa-code-branch text-3xl text-cyan-400"></i>
+                        </div>
+                        <h3 class="text-gray-300 text-sm font-semibold mb-2">Total Repositories</h3>
+                        <p class="text-4xl font-bold text-cyan-400 mb-2">15+</p>
+                        <p class="text-gray-400 text-xs">Active projects and learning repos</p>
+                    </div>
+
+                    <!-- GitHub Contributions -->
+                    <div class="glass glass-hover p-8 rounded-2xl text-center border border-emerald-400/20">
+                        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-emerald-400/10 mb-4">
+                            <i class="fas fa-fire text-3xl text-emerald-400"></i>
+                        </div>
+                        <h3 class="text-gray-300 text-sm font-semibold mb-2">Contributions (2024)</h3>
+                        <p class="text-4xl font-bold text-emerald-400 mb-2">500+</p>
+                        <p class="text-gray-400 text-xs">Consistent code contributions</p>
+                    </div>
+
+                    <!-- GitHub Stars -->
+                    <div class="glass glass-hover p-8 rounded-2xl text-center border border-yellow-400/20">
+                        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-yellow-400/10 mb-4">
+                            <i class="fas fa-star text-3xl text-yellow-400"></i>
+                        </div>
+                        <h3 class="text-gray-300 text-sm font-semibold mb-2">Stars Received</h3>
+                        <p class="text-4xl font-bold text-yellow-400 mb-2">50+</p>
+                        <p class="text-gray-400 text-xs">Community appreciation</p>
+                    </div>
+                </div>
+
+                <!-- GitHub Contribution Graph & Languages -->
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <!-- Contribution Graph -->
+                    <div class="glass glass-hover p-8 rounded-2xl border border-emerald-400/20">
+                        <h3 class="text-2xl font-bold text-emerald-400 mb-6 flex items-center">
+                            <i class="fas fa-chart-line mr-3"></i> Recent Activity
+                        </h3>
+                        <div class="bg-gray-900/50 p-6 rounded-xl mb-4 text-center">
+                            <p class="text-gray-400 text-sm mb-4">GitHub Contribution Graph</p>
+                            <img src="https://ghchart.rile.xyz/10b981/Mohammad-Zubair1" alt="GitHub contribution chart" width="100%" loading="lazy" class="rounded-lg">
+                        </div>
+                        <p class="text-gray-400 text-xs text-center">
+                            <i class="fas fa-info-circle mr-2"></i> Green squares = more commits on that day
+                        </p>
+                    </div>
+
+                    <!-- Most Used Languages -->
+                    <div class="glass glass-hover p-8 rounded-2xl border border-purple-400/20">
+                        <h3 class="text-2xl font-bold text-purple-400 mb-6 flex items-center">
+                            <i class="fas fa-bars mr-3"></i> Most Used Languages
+                        </h3>
+                        <div class="space-y-4">
+                            <!-- JavaScript -->
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-300 font-semibold text-sm">JavaScript</span>
+                                    <span class="text-purple-400 text-sm font-bold">35%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-yellow-400 to-purple-400 h-2 rounded-full" style="width: 35%"></div>
+                                </div>
+                            </div>
+
+                            <!-- PHP -->
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-300 font-semibold text-sm">PHP</span>
+                                    <span class="text-purple-400 text-sm font-bold">28%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-purple-600 to-purple-400 h-2 rounded-full" style="width: 28%"></div>
+                                </div>
+                            </div>
+
+                            <!-- HTML/CSS -->
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-300 font-semibold text-sm">HTML/CSS</span>
+                                    <span class="text-purple-400 text-sm font-bold">18%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-orange-400 to-purple-400 h-2 rounded-full" style="width: 18%"></div>
+                                </div>
+                            </div>
+
+                            <!-- SQL -->
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-300 font-semibold text-sm">SQL</span>
+                                    <span class="text-purple-400 text-sm font-bold">12%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-blue-400 to-purple-400 h-2 rounded-full" style="width: 12%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Other -->
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-300 font-semibold text-sm">Others</span>
+                                    <span class="text-purple-400 text-sm font-bold">7%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-gray-400 to-purple-400 h-2 rounded-full" style="width: 7%"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Additional Projects -->
-
-                    <!-- CourseLab Screenshots Gallery -->
-                    <div class="mb-12">
-                        <h3 class="text-2xl font-bold text-white mb-6">CourseLab – Screenshots & UI Preview</h3>
-                        <div class="screens-grid grid md:grid-cols-4 gap-4">
-                            <div class="glass glass-hover p-4 rounded-lg overflow-hidden cursor-pointer gallery-item">
-                                <img src="screenshots/shot1.png" alt="CourseLab Dashboard" data-src="screenshots/shot1.png" loading="lazy" width="1200" height="675" class="w-full h-48 object-cover rounded-lg hover:scale-105">
-                                <p class="text-gray-300 text-sm mt-3 text-center">Dashboard</p>
-                            </div>
-                            <div class="glass glass-hover p-4 rounded-lg overflow-hidden cursor-pointer gallery-item">
-                                <img src="screenshots/shot2.png" alt="CourseLab Course Listing" data-src="screenshots/shot2.png" loading="lazy" width="1280" height="720" class="w-full h-48 object-cover rounded-lg hover:scale-105">
-                                <p class="text-gray-300 text-sm mt-3 text-center">Course Listing</p>
-                            </div>
-                            <div class="glass glass-hover p-4 rounded-lg overflow-hidden cursor-pointer gallery-item">
-                                <img src="screenshots/student-dashboard.png" alt="CourseLab Student Dashboard" data-src="screenshots/student-dashboard.png" loading="lazy" width="1200" height="675" class="w-full h-48 object-cover rounded-lg hover:scale-105">
-                                <p class="text-gray-300 text-sm mt-3 text-center">Student Dashboard</p>
-                            </div>
-                            <div class="glass glass-hover p-4 rounded-lg overflow-hidden cursor-pointer gallery-item">
-                                <img src="screenshots/admin.png" alt="CourseLab Admin Panel" data-src="screenshots/shot4.png" loading="lazy" width="1200" height="675" class="w-full h-48 object-cover rounded-lg hover:scale-105">
-                                <p class="text-gray-300 text-sm mt-3 text-center">Admin Panel</p>
-                            </div>
-                        </div>
-                    </div>
-
-                <h3 class="text-2xl font-bold text-white mb-8">Other Notable Projects</h3>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Task Management App -->
-                    <div class="glass glass-hover p-8 rounded-2xl card-3d">
-                        <h4 class="text-xl font-bold text-emerald-400 mb-3">Task Management Application</h4>
-                        <p class="text-gray-400 text-sm mb-4">
-                            Full-stack task manager with RESTful API, JWT authentication, drag-and-drop UI, and real-time updates for efficient task organization and priority management.
-                        </p>
-                        <div class="mb-4">
-                            <p class="text-gray-300 text-sm font-semibold mb-2">Tech Stack:</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="skill-chip">Node.js</span>
-                                <span class="skill-chip">Express.js</span>
-                                <span class="skill-chip">MongoDB</span>
-                                <span class="skill-chip">React.js</span>
-                            </div>
-                        </div>
-                        <div class="text-gray-400 text-sm mb-4">
-                            <i class="fas fa-calendar text-emerald-400 mr-2"></i> May 2024 - June 2024
-                        </div>
-                    </div>
-
-                    <!-- Portfolio Website -->
-                    <div class="glass glass-hover p-8 rounded-2xl card-3d">
-                        <h4 class="text-xl font-bold text-emerald-400 mb-3">Personal Portfolio Website</h4>
-                        <p class="text-gray-400 text-sm mb-4">
-                            Responsive portfolio featuring smooth animations, integrated contact form, and project showcase section. Achieved 95+ Google Lighthouse performance score.
-                        </p>
-                        <div class="mb-4">
-                            <p class="text-gray-300 text-sm font-semibold mb-2">Tech Stack:</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="skill-chip">React.js</span>
-                                <span class="skill-chip">Tailwind CSS</span>
-                                <span class="skill-chip">Framer Motion</span>
-                            </div>
-                        </div>
-                        <div class="text-gray-400 text-sm mb-4">
-                            <i class="fas fa-calendar text-emerald-400 mr-2"></i> July 2024 - August 2024
-                        </div>
-                    </div>
+                <!-- GitHub CTA -->
+                <div class="text-center">
+                    <a href="https://github.com/Mohammad-Zubair1" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 glow-btn px-8 py-4 text-lg hover:scale-105 transition-transform" aria-label="Visit GitHub Profile">
+                        <i class="fab fa-github text-2xl"></i>
+                        <span>Explore My GitHub Profile</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </section>
@@ -845,21 +1944,74 @@
                     <!-- Contact Form -->
                     <div class="glass glass-hover p-8 rounded-2xl">
                         <h3 class="text-2xl font-bold text-emerald-400 mb-6">Send Me a Message</h3>
-                        <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-4">
+                        <form id="contactForm" class="space-y-4">
+                            <!-- Name Field -->
                             <div>
-                                <label for="name" class="block text-gray-300 text-sm font-semibold mb-2">Name</label>
-                                <input type="text" id="name" name="name" required placeholder="Your Name" class="w-full" aria-label="Your Name">
+                                <label for="name" class="block text-gray-300 text-sm font-semibold mb-2">Name *</label>
+                                <input 
+                                    type="text" 
+                                    id="name" 
+                                    name="name" 
+                                    required 
+                                    placeholder="Your Full Name"
+                                    class="w-full contact-input"
+                                    aria-label="Your Name"
+                                    minlength="2"
+                                    maxlength="50">
+                                <span class="error-message text-red-400 text-xs mt-1 hidden" id="nameError"></span>
                             </div>
+
+                            <!-- Email Field -->
                             <div>
-                                <label for="email" class="block text-gray-300 text-sm font-semibold mb-2">Email</label>
-                                <input type="email" id="email" name="email" required placeholder="your@email.com" class="w-full" aria-label="Your Email">
+                                <label for="email" class="block text-gray-300 text-sm font-semibold mb-2">Email *</label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    required 
+                                    placeholder="your@email.com"
+                                    class="w-full contact-input"
+                                    aria-label="Your Email">
+                                <span class="error-message text-red-400 text-xs mt-1 hidden" id="emailError"></span>
                             </div>
+
+                            <!-- Message Field with Character Counter -->
                             <div>
-                                <label for="message" class="block text-gray-300 text-sm font-semibold mb-2">Message</label>
-                                <textarea id="message" name="message" required placeholder="Your message here..." rows="5" class="w-full" aria-label="Your Message"></textarea>
+                                <div class="flex justify-between items-center mb-2">
+                                    <label for="message" class="block text-gray-300 text-sm font-semibold">Message *</label>
+                                    <span class="text-gray-400 text-xs">
+                                        <span id="charCount">0</span> / 500
+                                    </span>
+                                </div>
+                                <textarea 
+                                    id="message" 
+                                    name="message" 
+                                    required 
+                                    placeholder="Tell me about your project or inquiry..."
+                                    rows="5"
+                                    maxlength="500"
+                                    class="w-full contact-input resize-none"
+                                    aria-label="Your Message"></textarea>
+                                <span class="error-message text-red-400 text-xs mt-1 hidden" id="messageError"></span>
                             </div>
-                            <button type="submit" class="w-full glow-btn" aria-label="Send Message">
-                                <i class="fas fa-paper-plane mr-2"></i> Send Message
+
+                            <!-- reCAPTCHA -->
+                            <div class="flex justify-center my-4">
+                                <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+                            </div>
+                            <span class="error-message text-red-400 text-xs mt-1 hidden text-center" id="recaptchaError"></span>
+
+                            <!-- Submit Button with Loading State -->
+                            <button 
+                                type="submit" 
+                                id="submitBtn"
+                                class="w-full glow-btn flex items-center justify-center gap-2"
+                                aria-label="Send Message">
+                                <i class="fas fa-paper-plane"></i>
+                                <span id="submitText">Send Message</span>
+                                <div id="loadingSpinner" class="hidden">
+                                    <i class="fas fa-spinner animate-spin"></i>
+                                </div>
                             </button>
                         </form>
                     </div>
@@ -950,12 +2102,21 @@
         <i class="fas fa-arrow-up"></i>
     </div>
 
+    <!-- Toast Notifications Container -->
+    <div id="toastContainer" class="fixed top-6 right-6 z-50 flex flex-col gap-4"></div>
+
     <!-- JavaScript -->
         <!-- Modal: screenshot preview -->
         <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" tabindex="-1" style="display:none;">
             <button class="modal-close" aria-label="Close modal">✕</button>
             <img id="modal-img" src="" alt="Screenshot preview" />
         </div>
+
+        <!-- EmailJS CDN -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
+        <!-- Google reCAPTCHA -->
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     <script>
         // Initialize Lenis Smooth Scroll
         const lenis = new Lenis({
@@ -998,19 +2159,186 @@
             }
         });
 
-        // Form Submission Handler
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            // Note: Replace YOUR_FORM_ID with actual Formspree form ID
-            // To set up: go to formspree.io, create a new form, get your form ID
-            // Update the form action attribute with: https://formspree.io/f/YOUR_FORM_ID
-            const email = document.getElementById('email').value;
-            const name = document.getElementById('name').value;
-            
-            if (!email || !name) {
-                alert('Please fill in all required fields');
-                e.preventDefault();
+        // ========== Contact Form Enhancement ==========
+        (function() {
+            // Initialize EmailJS - IMPORTANT: Replace 'YOUR_PUBLIC_KEY' with your EmailJS public key
+            // Sign up at https://www.emailjs.com/ to get your public key
+            emailjs.init('YOUR_PUBLIC_KEY');
+
+            const contactForm = document.getElementById('contactForm');
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+            const charCount = document.getElementById('charCount');
+            const submitBtn = document.getElementById('submitBtn');
+            const submitText = document.getElementById('submitText');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+
+            // Character counter for message
+            messageInput.addEventListener('input', () => {
+                charCount.textContent = messageInput.value.length;
+            });
+
+            // Real-time validation with focus animations
+            nameInput.addEventListener('blur', validateName);
+            emailInput.addEventListener('blur', validateEmail);
+            messageInput.addEventListener('blur', validateMessage);
+
+            // Focus animations
+            [nameInput, emailInput, messageInput].forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.parentElement.classList.add('focused');
+                });
+                input.addEventListener('blur', function() {
+                    this.parentElement.classList.remove('focused');
+                });
+            });
+
+            // Validation functions
+            function validateName() {
+                const value = nameInput.value.trim();
+                const errorEl = document.getElementById('nameError');
+                
+                if (!value) {
+                    showError(errorEl, 'Name is required');
+                    return false;
+                } else if (value.length < 2) {
+                    showError(errorEl, 'Name must be at least 2 characters');
+                    return false;
+                } else {
+                    hideError(errorEl);
+                    return true;
+                }
             }
-        });
+
+            function validateEmail() {
+                const value = emailInput.value.trim();
+                const errorEl = document.getElementById('emailError');
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                
+                if (!value) {
+                    showError(errorEl, 'Email is required');
+                    return false;
+                } else if (!emailRegex.test(value)) {
+                    showError(errorEl, 'Please enter a valid email');
+                    return false;
+                } else {
+                    hideError(errorEl);
+                    return true;
+                }
+            }
+
+            function validateMessage() {
+                const value = messageInput.value.trim();
+                const errorEl = document.getElementById('messageError');
+                
+                if (!value) {
+                    showError(errorEl, 'Message is required');
+                    return false;
+                } else if (value.length < 10) {
+                    showError(errorEl, 'Message must be at least 10 characters');
+                    return false;
+                } else {
+                    hideError(errorEl);
+                    return true;
+                }
+            }
+
+            function showError(el, message) {
+                el.textContent = message;
+                el.classList.remove('hidden');
+                el.parentElement?.classList.add('error');
+            }
+
+            function hideError(el) {
+                el.textContent = '';
+                el.classList.add('hidden');
+                el.parentElement?.classList.remove('error');
+            }
+
+            // Toast notification system
+            function showToast(message, type = 'success') {
+                const container = document.getElementById('toastContainer');
+                const toast = document.createElement('div');
+                
+                const bgColor = type === 'success' ? 'bg-emerald-500' : 'bg-red-500';
+                const icon = type === 'success' ? 'fas fa-check-circle' : 'fas fa-exclamation-circle';
+                
+                toast.className = `${bgColor} text-white px-6 py-4 rounded-lg shadow-lg flex items-center gap-3 animate-slideIn`;
+                toast.innerHTML = `
+                    <i class="${icon}"></i>
+                    <span>${message}</span>
+                    <button class="ml-auto text-white hover:text-gray-200" onclick="this.parentElement.remove()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                `;
+                
+                container.appendChild(toast);
+                
+                // Auto-remove after 5 seconds
+                setTimeout(() => {
+                    toast.style.animation = 'slideOut 0.3s ease forwards';
+                    setTimeout(() => toast.remove(), 300);
+                }, 5000);
+            }
+
+            // Form submission
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                // Validate all fields
+                const isNameValid = validateName();
+                const isEmailValid = validateEmail();
+                const isMessageValid = validateMessage();
+
+                if (!isNameValid || !isEmailValid || !isMessageValid) {
+                    showToast('Please fix the errors above', 'error');
+                    return;
+                }
+
+                // Check reCAPTCHA
+                const recaptchaResponse = grecaptcha.getResponse();
+                if (!recaptchaResponse) {
+                    showToast('Please verify reCAPTCHA', 'error');
+                    return;
+                }
+
+                // Show loading state
+                submitBtn.disabled = true;
+                submitText.classList.add('hidden');
+                loadingSpinner.classList.remove('hidden');
+
+                try {
+                    // Send email via EmailJS
+                    // IMPORTANT: Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your EmailJS credentials
+                    const response = await emailjs.send(
+                        'YOUR_SERVICE_ID',  // Replace with your EmailJS service ID
+                        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+                        {
+                            from_name: nameInput.value,
+                            from_email: emailInput.value,
+                            message: messageInput.value,
+                            reply_to: emailInput.value
+                        }
+                    );
+
+                    if (response.status === 200) {
+                        showToast('Message sent successfully! I\'ll get back to you soon.', 'success');
+                        contactForm.reset();
+                        charCount.textContent = '0';
+                        grecaptcha.reset();
+                    }
+                } catch (error) {
+                    console.error('Error sending message:', error);
+                    showToast('Failed to send message. Please try again or email directly.', 'error');
+                } finally {
+                    // Reset button state
+                    submitBtn.disabled = false;
+                    submitText.classList.remove('hidden');
+                    loadingSpinner.classList.add('hidden');
+                }
+            });
+        })();
 
         // Add scroll animations to elements
         const observerOptions = {
@@ -1105,6 +2433,157 @@
         
                 console.log('Portfolio loaded successfully!');
                 console.log('Full Stack Developer - Mohammad Zubair');
+
+        // Typing effect for hero roles (lightweight, accessible)
+        (function(){
+            const roles = [
+                'Full Stack Developer',
+                'React Specialist',
+                'Payment Integration Expert',
+                'Laravel Developer'
+            ];
+            const typedEl = document.getElementById('typed-roles');
+            if(!typedEl) return;
+            // add cursor element
+            if(!document.getElementById('typed-cursor')){
+                typedEl.insertAdjacentHTML('afterend', '<span id="typed-cursor" class="inline-block ml-1 text-emerald-400 animate-pulse">|</span>');
+            }
+            let roleIndex = 0;
+            let charIndex = 0;
+            let deleting = false;
+
+            function tick(){
+                const fullText = roles[roleIndex];
+                if(!deleting){
+                    charIndex++;
+                    typedEl.textContent = fullText.slice(0, charIndex);
+                    if(charIndex === fullText.length){
+                        deleting = true;
+                        setTimeout(tick, 1700);
+                        return;
+                    }
+                    setTimeout(tick, 80);
+                } else {
+                    charIndex--;
+                    typedEl.textContent = fullText.slice(0, charIndex);
+                    if(charIndex === 0){
+                        deleting = false;
+                        roleIndex = (roleIndex + 1) % roles.length;
+                        setTimeout(tick, 500);
+                        return;
+                    }
+                    setTimeout(tick, 40);
+                }
+            }
+            // small initial delay for polished entrance
+            setTimeout(tick, 600);
+        })();
+
+        // ========== Project Filtering & Load More ==========
+        (function(){
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            const featuredProject = document.querySelector('.featured-project');
+            let cardsShown = 2; // Show featured + 2 initial cards
+
+            // Show initial cards (featured is always visible)
+            function showInitialCards(){
+                let count = 0;
+                projectCards.forEach((card, idx) => {
+                    if(card === featuredProject){
+                        card.classList.remove('hidden');
+                        return;
+                    }
+                    if(count < cardsShown && !card.classList.contains('hidden')){
+                        card.classList.remove('hidden');
+                        card.classList.add('visible');
+                        count++;
+                    } else if(!card.classList.contains('featured-project')){
+                        card.classList.add('hidden');
+                    }
+                });
+            }
+
+            // Filter functionality
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const filter = btn.dataset.filter;
+                    
+                    // Update active state
+                    filterBtns.forEach(b => {
+                        b.classList.remove('active');
+                        b.setAttribute('aria-pressed', 'false');
+                    });
+                    btn.classList.add('active');
+                    btn.setAttribute('aria-pressed', 'true');
+
+                    // Filter cards
+                    projectCards.forEach(card => {
+                        const category = card.dataset.category;
+                        
+                        if(filter === 'all' || category === filter){
+                            card.style.display = '';
+                            setTimeout(() => {
+                                card.classList.add('visible');
+                            }, 10);
+                        } else {
+                            card.classList.remove('visible');
+                            card.style.display = 'none';
+                        }
+                    });
+
+                    // Reset Load More
+                    cardsShown = 2;
+                    updateLoadMoreVisibility();
+                });
+            });
+
+            // Load More functionality
+            function updateLoadMoreVisibility(){
+                const visibleCards = Array.from(projectCards).filter(card => 
+                    card.style.display !== 'none' && card !== featuredProject
+                );
+                
+                if(visibleCards.length <= cardsShown){
+                    loadMoreBtn.style.display = 'none';
+                } else {
+                    loadMoreBtn.style.display = 'block';
+                }
+            }
+
+            loadMoreBtn.addEventListener('click', () => {
+                cardsShown += 3;
+                let count = 0;
+                
+                projectCards.forEach(card => {
+                    if(card === featuredProject) return;
+                    
+                    if(card.style.display !== 'none'){
+                        count++;
+                        if(count <= cardsShown){
+                            card.classList.remove('hidden');
+                            card.classList.add('visible');
+                        }
+                    }
+                });
+
+                updateLoadMoreVisibility();
+            });
+
+            // Initialize
+            showInitialCards();
+            updateLoadMoreVisibility();
+
+            // Add event delegation for View Details buttons (future modal support)
+            document.querySelectorAll('.view-details-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    // Add modal functionality here if needed
+                    console.log('View details clicked');
+                });
+            });
+        })();
         </script>
 </body>
 </html>
