@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mohammad Zubair — Resume</title>
+    <meta
+      name="description"
+      content="Mohammad Zubair — Full-Stack Developer. React, Laravel, Payments."
+    />
+    <style>
+      /* Minimal, ATS-friendly resume styles (print-safe) */
+      :root {
+        --accent: #10b981;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 24px;
+        color: #111;
+        background: #fff;
+      }
+      .sheet {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 16px;
+      }
+      .name {
+        font-size: 26px;
+        font-weight: 800;
+        margin-bottom: 4px;
+      }
+      .title {
+        color: var(--accent);
+        font-weight: 700;
+      }
+      .contact {
+        font-size: 13px;
+        color: #333;
+      }
+      section {
+        margin-top: 18px;
+      }
+      h2 {
+        background: var(--accent);
+        color: #fff;
+        padding: 6px 10px;
+        margin: 0 0 10px;
+        font-size: 13px;
+      }
+      ul {
+        margin: 8px 0 0 18px;
+        padding: 0;
+      }
+      li {
+        margin-bottom: 6px;
+        font-size: 14px;
+      }
+      .muted {
+        color: #555;
+        font-size: 13px;
+      }
+      .skill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .skill-pill {
+        background: #f3f6f5;
+        padding: 6px 8px;
+        border-radius: 6px;
+        font-size: 13px;
+        color: #111;
+      }
+      .meta {
+        font-size: 13px;
+        color: #333;
+      }
+      .date {
+        font-size: 13px;
+        color: #666;
+      }
+      .project-title {
+        font-weight: 700;
+      }
+      @media print {
+        body {
+          padding: 0;
+        }
+        .sheet {
+          box-shadow: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sheet">
+      <header>
+        <div>
+          <div class="name">Mohammad Zubair</div>
+          <div class="title">
+            Full-Stack Developer — React · Laravel · Payments
+          </div>
+        </div>
+        <div class="contact">
+          <div>
+            📧
+            <a href="mailto:zubairskb030@gmail.com">zubairskb030@gmail.com</a>
+          </div>
+          <div>📱 +91 7248361486</div>
+          <div>🌍 Shikohabad, Uttar Pradesh, India — Open to Remote</div>
+          <div>🔗 GitHub: Mohammad-Zubair1 · LinkedIn: /mohammadzubairdev</div>
+        </div>
+      </header>
+
+      <section>
+        <h2>Professional Summary</h2>
+        <p class="muted">
+          Full-Stack developer who ships production-ready web applications.
+          Built <strong>CourseLab</strong> — an end-to-end EdTech SaaS (React +
+          Laravel) with secure payment flows (Razorpay), RBAC, and performance
+          optimizations. Strong fundamentals in web architecture, API design,
+          and UX. Seeking entry-level remote roles where I can contribute to
+          product teams and grow.
+        </p>
+      </section>
+
+      <section>
+        <h2>Core Skills</h2>
+        <div class="skill-list">
+          <span class="skill-pill">React.js</span>
+          <span class="skill-pill">Laravel</span>
+          <span class="skill-pill">JavaScript (ES6+)</span>
+          <span class="skill-pill">REST APIs</span>
+          <span class="skill-pill">Razorpay</span>
+          <span class="skill-pill">MySQL</span>
+          <span class="skill-pill">Tailwind CSS</span>
+          <span class="skill-pill">Git & GitHub</span>
+          <span class="skill-pill">CI/CD / Vercel / Railway</span>
+        </div>
+      </section>
+
+      <section>
+        <h2>Experience & Selected Projects</h2>
+
+        <div>
+          <div class="project-title">
+            CourseLab — Full-Stack Developer (Founder)
+          </div>
+          <div class="date">Jan 2024 — Present</div>
+          <ul>
+            <li>
+              Designed and shipped CourseLab (React frontend, Laravel API,
+              MySQL). Solo-built and delivered in 12 weeks.
+            </li>
+            <li>
+              Implemented Razorpay payments with webhook verification and RBAC
+              (Student/Instructor/Admin); reduced payment errors to 0%.
+            </li>
+            <li>
+              Optimized frontend performance (code-splitting, lazy-loading)
+              achieving 90+ Lighthouse score and improved response time by ~50%
+              through query optimization.
+            </li>
+            <li>
+              Deployed frontend on Vercel and backend on Railway; maintained
+              99.9% uptime for the demo environment.
+            </li>
+            <li>
+              Live demo: <span class="muted">courselab-demo.vercel.app</span> ·
+              Repo:
+              <span class="muted">github.com/Mohammad-Zubair1/courselab</span>
+            </li>
+          </ul>
+        </div>
+
+        <div style="margin-top: 10px">
+          <div class="project-title">Task Management App — Full-Stack</div>
+          <div class="date">May 2024 — June 2024</div>
+          <ul>
+            <li>
+              Built RESTful API with Node.js + Express and a React frontend
+              featuring drag-and-drop task lists and JWT auth.
+            </li>
+            <li>
+              Added real-time updates and improved UX for task prioritization;
+              documented API for easy integration.
+            </li>
+          </ul>
+        </div>
+
+        <div style="margin-top: 10px">
+          <div class="project-title">Personal Portfolio Website</div>
+          <div class="date">July 2024 — Aug 2024</div>
+          <ul>
+            <li>
+              Built responsive portfolio with focus on performance and
+              accessibility; achieved 95+ Lighthouse performance in production.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <div class="meta">
+          <strong>B.Sc. Computer Science</strong> — JS University, Shikohabad
+          <div class="date">Nov 2023 — Expected Dec 2026 · CGPA: 8.1/10</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Certifications</h2>
+        <ul>
+          <li>
+            Complete Web Development Bootcamp — Astha Animation (Jun 2024)
+          </li>
+          <li>React.js & Tailwind Mastery — Chai Aur Code (Aug 2024)</li>
+          <li>Node.js Complete Course — Coursera (Sep 2024)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Languages & Availability</h2>
+        <p class="muted">
+          Hindi (Native) · English (Professional Working Proficiency) · Urdu
+          (Fluent)
+        </p>
+        <p class="muted">
+          Work Authorization: India · Availability: Immediate · Preferred:
+          Remote
+        </p>
+      </section>
+    </div>
+  </body>
+</html>

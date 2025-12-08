@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Deployment Hub - Mohammad Zubair</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(
+          135deg,
+          #0f172a 0%,
+          #1a1f35 50%,
+          #0f172a 100%
+        );
+        color: #e2e8f0;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        background: linear-gradient(135deg, #10b981, #06b6d4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .subtitle {
+        text-align: center;
+        color: #94a3b8;
+        margin-bottom: 40px;
+        font-size: 1.1rem;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-bottom: 40px;
+      }
+
+      .card {
+        background: rgba(15, 23, 42, 0.7);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(16, 185, 129, 0.2);
+        border-radius: 12px;
+        padding: 25px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .card:hover {
+        background: rgba(15, 23, 42, 0.9);
+        border-color: rgba(16, 185, 129, 0.5);
+        transform: translateY(-5px);
+        box-shadow: 0 0 30px rgba(16, 185, 129, 0.2);
+      }
+
+      .card h2 {
+        color: #10b981;
+        margin-bottom: 10px;
+        font-size: 1.3rem;
+      }
+
+      .card p {
+        color: #cbd5e1;
+        line-height: 1.6;
+        margin-bottom: 15px;
+        font-size: 0.95rem;
+      }
+
+      .badge {
+        display: inline-block;
+        background: #10b981;
+        color: white;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-right: 8px;
+        margin-bottom: 10px;
+      }
+
+      .btn {
+        display: inline-block;
+        background: linear-gradient(135deg, #10b981, #06b6d4);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        font-size: 0.9rem;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+      }
+
+      .hero {
+        text-align: center;
+        margin-bottom: 50px;
+        padding: 40px;
+        background: rgba(16, 185, 129, 0.05);
+        border-radius: 12px;
+        border: 1px solid rgba(16, 185, 129, 0.2);
+      }
+
+      .hero h1 {
+        margin-bottom: 15px;
+      }
+
+      .checklist {
+        background: rgba(15, 23, 42, 0.7);
+        border: 1px solid rgba(16, 185, 129, 0.2);
+        border-radius: 12px;
+        padding: 25px;
+        margin-top: 30px;
+      }
+
+      .checklist h3 {
+        color: #10b981;
+        margin-bottom: 15px;
+      }
+
+      .checklist li {
+        color: #cbd5e1;
+        margin-bottom: 10px;
+        list-style-position: inside;
+      }
+
+      .files {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-top: 30px;
+      }
+
+      .file-item {
+        background: rgba(16, 185, 129, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 15px;
+        border-radius: 8px;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .file-item:hover {
+        background: rgba(16, 185, 129, 0.2);
+        border-color: #10b981;
+      }
+
+      .file-item a {
+        color: #10b981;
+        text-decoration: none;
+        font-weight: 600;
+        display: block;
+      }
+
+      .file-item a:hover {
+        color: #06b6d4;
+      }
+
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 1.8rem;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="hero">
+        <h1>🚀 Mohammad Zubair Portfolio</h1>
+        <p class="subtitle">Deployment & Publishing Hub</p>
+      </div>
+
+      <div class="grid">
+        <!-- Netlify Card -->
+        <div class="card">
+          <h2>⚡ Netlify</h2>
+          <span class="badge">Fastest</span>
+          <p>Drag & drop deployment. Go live in 30 seconds!</p>
+          <p><strong>Perfect for:</strong> Quick publishing</p>
+          <p><strong>Time:</strong> 30 seconds</p>
+          <a href="https://netlify.com" target="_blank" class="btn"
+            >Deploy on Netlify</a
+          >
+        </div>
+
+        <!-- Vercel Card -->
+        <div class="card">
+          <h2>🔵 Vercel</h2>
+          <span class="badge">Professional</span>
+          <p>Git integration with auto-deployments. Industry standard.</p>
+          <p><strong>Perfect for:</strong> Professional portfolio</p>
+          <p><strong>Time:</strong> 1 minute</p>
+          <a href="https://vercel.com" target="_blank" class="btn"
+            >Deploy on Vercel</a
+          >
+        </div>
+
+        <!-- GitHub Pages Card -->
+        <div class="card">
+          <h2>🟣 GitHub Pages</h2>
+          <span class="badge">Free</span>
+          <p>Built-in with GitHub. Version control included.</p>
+          <p><strong>Perfect for:</strong> Free & simple</p>
+          <p><strong>Time:</strong> 2 minutes</p>
+          <a href="https://pages.github.com" target="_blank" class="btn"
+            >Use GitHub Pages</a
+          >
+        </div>
+      </div>
+
+      <div class="checklist">
+        <h3>✅ Pre-Deployment Checklist</h3>
+        <ul>
+          <li>
+            Test portfolio locally (right-click index.html → Open in browser)
+          </li>
+          <li>Check all navigation links work</li>
+          <li>Verify Resume button opens resume.html</li>
+          <li>Test on mobile device (responsive check)</li>
+          <li>Update Formspree form ID for contact form</li>
+          <li>Verify all social media links</li>
+          <li>Check images load properly</li>
+        </ul>
+      </div>
+
+      <h2 style="color: #10b981; margin-top: 40px; margin-bottom: 20px">
+        📁 Important Files
+      </h2>
+      <div class="files">
+        <div class="file-item">
+          <a href="QUICK_DEPLOY.md">⚡ QUICK_DEPLOY.md</a>
+          <small>Fast start guide (read this!)</small>
+        </div>
+        <div class="file-item">
+          <a href="DEPLOYMENT_CHECKLIST.md">✅ DEPLOYMENT_CHECKLIST.md</a>
+          <small>Complete checklist</small>
+        </div>
+        <div class="file-item">
+          <a href="PUBLISHING_GUIDE.md">📖 PUBLISHING_GUIDE.md</a>
+          <small>Detailed guide</small>
+        </div>
+        <div class="file-item">
+          <a href="index.html">🌐 index.html</a>
+          <small>Your portfolio (main file)</small>
+        </div>
+        <div class="file-item">
+          <a href="resume.html">📄 resume.html</a>
+          <small>Professional resume</small>
+        </div>
+      </div>
+
+      <div
+        style="
+          background: rgba(139, 92, 246, 0.1);
+          border: 1px solid rgba(139, 92, 246, 0.3);
+          border-radius: 12px;
+          padding: 25px;
+          margin-top: 40px;
+          text-align: center;
+        "
+      >
+        <h2 style="color: #c084fc; margin-bottom: 15px">
+          🎯 Expert Recommendation
+        </h2>
+        <p style="color: #cbd5e1; margin-bottom: 15px">
+          Deploy on <strong>Vercel</strong> + Add custom domain
+          <strong>mohammadzubair.dev</strong>
+        </p>
+        <p style="color: #94a3b8; margin-bottom: 20px">
+          This combination stands out to recruiters!
+        </p>
+        <a href="https://vercel.com" target="_blank" class="btn"
+          >Deploy on Vercel Now</a
+        >
+      </div>
+
+      <div
+        style="
+          text-align: center;
+          color: #64748b;
+          margin-top: 40px;
+          padding-top: 20px;
+          border-top: 1px solid rgba(16, 185, 129, 0.1);
+        "
+      >
+        <p>Your portfolio is production-ready! 🚀</p>
+        <p style="margin-top: 10px">
+          Choose a deployment option above and go LIVE today!
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

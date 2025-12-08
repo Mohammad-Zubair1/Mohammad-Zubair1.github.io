@@ -1,0 +1,1 @@
+Deploy instructions: Drag & drop this folder to Netlify/ Vercel or upload to any static host. Replace screenshots in screenshots/ and resume link as needed.

@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mohammad Zubair - Full Stack Developer specializing in React.js and Laravel. Built CourseLab: A live, monetized EdTech platform. Explore my projects, skills, and experience.">
+    <meta name="keywords" content="Full Stack Developer, React.js, Laravel, Payment Integration, EdTech, Node.js, JavaScript, PHP, MySQL">
+    <meta name="author" content="Mohammad Zubair">
+    <meta property="og:title" content="Mohammad Zubair - Full Stack Developer | React & Laravel">
+    <meta property="og:description" content="Explore the portfolio of Mohammad Zubair, a Full Stack Developer specializing in React.js and Laravel with expertise in payment integration and EdTech solutions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mohammadzubair.dev">
+    <meta name="theme-color" content="#0f172a">
+    
+    <title>Mohammad Zubair - Full Stack Developer | React & Laravel</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://cdn.jsdelivr.net/gh/darkroomengineering/lenis@latest/dist/lenis.min.js"></script>
+    
+    <style>
+        /* Custom Tailwind Configuration */
+        :root {
+            --color-primary: #10b981;
+            --color-secondary: #06b6d4;
+            --color-accent: #8b5cf6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1a1f35 50%, #0f172a 100%);
+            color: #e2e8f0;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Background Orbs */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #10b981, #06b6d4);
+            top: -10%;
+            right: -5%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #8b5cf6, #10b981);
+            bottom: -5%;
+            left: -5%;
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        .orb-3 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+            top: 50%;
+            left: 50%;
+            animation: float 30s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            33% {
+                transform: translate(30px, -30px);
+            }
+            66% {
+                transform: translate(-20px, 20px);
+            }
+        }
+
+        /* Content wrapper */
+        main {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Glassmorphism Effect */
+        .glass {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(16, 185, 129, 0.1);
+        }
+
+        .glass-hover {
+            transition: all 0.3s ease;
+        }
+
+        .glass-hover:hover {
+            background: rgba(15, 23, 42, 0.9);
+            border-color: rgba(16, 185, 129, 0.3);
+            transform: translateY(-5px);
+        }
+
+        /* Glowing Text */
+        .glow-text {
+            background: linear-gradient(135deg, #10b981, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.3));
+        }
+
+        /* Glowing Buttons */
+        .glow-btn {
+            position: relative;
+            background: linear-gradient(135deg, #10b981, #06b6d4);
+            border: none;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 0 25px rgba(16, 185, 129, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+            letter-spacing: 0.5px;
+        }
+
+        .glow-btn:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.7), 0 0 50px rgba(6, 182, 212, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .glow-btn:active {
+            transform: translateY(-2px) scale(0.98);
+        }
+
+        /* Secondary Button */
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid rgba(16, 185, 129, 0.5);
+            color: #10b981;
+            box-shadow: none;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(16, 185, 129, 0.1);
+            border-color: #10b981;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Smooth Fade-in Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .fade-in:nth-child(1) { animation-delay: 0.1s; }
+        .fade-in:nth-child(2) { animation-delay: 0.2s; }
+        .fade-in:nth-child(3) { animation-delay: 0.3s; }
+        .fade-in:nth-child(4) { animation-delay: 0.4s; }
+        .fade-in:nth-child(5) { animation-delay: 0.5s; }
+
+        /* 3D Tilt Effect for Cards */
+        .card-3d {
+            perspective: 1000px;
+            transition: transform 0.3s ease;
+        }
+
+        .card-3d:hover {
+            transform: rotateX(5deg) rotateY(-5deg) scale(1.02);
+        }
+
+        /* Skill Chips */
+        .skill-chip {
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 6px;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 20px;
+            color: #10b981;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .skill-chip:hover {
+            background: rgba(16, 185, 129, 0.3);
+            border-color: #10b981;
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Timeline */
+        .timeline-item {
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 3px solid #10b981;
+            background: rgba(16, 185, 129, 0.05);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            background: rgba(16, 185, 129, 0.1);
+            border-left-color: #06b6d4;
+            transform: translateX(5px);
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #10b981, #06b6d4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+            color: white;
+            font-size: 20px;
+        }
+
+        .scroll-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.6);
+        }
+
+        /* Navigation Underline */
+        nav a {
+            position: relative;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, #10b981, #06b6d4);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Form Styling */
+        input, textarea {
+            background: rgba(30, 41, 59, 0.5) !important;
+            border: 1px solid rgba(16, 185, 129, 0.2) !important;
+            color: #e2e8f0 !important;
+            padding: 12px 16px !important;
+            border-radius: 8px !important;
+            transition: all 0.3s ease !important;
+        }
+
+        input:focus, textarea:focus {
+            outline: none !important;
+            background: rgba(30, 41, 59, 0.8) !important;
+            border-color: #10b981 !important;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.2) !important;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: rgba(226, 232, 240, 0.6) !important;
+        }
+
+        /* Responsive Typography */
+        @media (max-width: 768px) {
+            .orb-1, .orb-2, .orb-3 {
+                display: none;
+            }
+
+            .scroll-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        /* Limit transitions to interactive elements for performance */
+        .glass-hover, .glow-btn, .skill-chip, nav a, .card-3d {
+            transition: color 0.3s ease, background 0.3s ease, transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        /* Link styling */
+        a {
+            color: #10b981;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: #06b6d4;
+        }
+    </style>
+<body>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <!-- Animated Background Orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass py-4 px-4 md:px-8">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="#hero" class="text-2xl font-bold glow-text" aria-label="Home">
+              <i class="fas fa-code" aria-hidden="true"></i>
+              Full Stack Developer
+            </a>
+            <div class="nav-links hidden md:flex gap-8" aria-hidden="true">
+                <a href="#hero" class="text-gray-300 hover:text-emerald-400">Home</a>
+                <a href="#about" class="text-gray-300 hover:text-emerald-400">About</a>
+                <a href="#skills" class="text-gray-300 hover:text-emerald-400">Skills</a>
+                <a href="#projects" class="text-gray-300 hover:text-emerald-400">Projects</a>
+                <a href="#education" class="text-gray-300 hover:text-emerald-400">Education</a>
+                <a href="#contact" class="text-gray-300 hover:text-emerald-400">Contact</a>
+            </div>
+            <button class="md:hidden text-emerald-400 text-2xl" id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main">
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen flex items-center justify-center pt-20 pb-20 px-4 md:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="mb-8 fade-in">
+                        <div class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full glass p-2 mb-6">
+                        <img src="screenshots/Profile.png" alt="Mohammad Zubair Profile" width="320" height="320" loading="lazy" class="w-full h-full rounded-full object-cover">
+                    </div>
+                </div>
+
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 fade-in glow-text">
+                    Mohammad Zubair
+                </h1>
+
+                <p class="text-xl md:text-2xl text-emerald-400 font-semibold mb-6 fade-in">
+                    Full Stack Developer | React.js • Laravel • Payment Integration Specialist
+                </p>
+
+                <p class="text-gray-300 text-lg max-w-2xl mx-auto mb-8 fade-in leading-relaxed">
+                    Built <span class="text-emerald-400 font-semibold">CourseLab</span>, a live monetized EdTech platform handling auth, dynamic courses, and Razorpay payments for 50+ users—boosting engagement 30%. Specialized in secure APIs, responsive UIs, and agile workflows.
+                </p>
+
+                <!-- Location Badge -->
+                <div class="flex justify-center items-center gap-2 text-gray-400 mb-8 fade-in">
+                    <i class="fas fa-map-marker-alt text-emerald-400"></i>
+                    <span>Shikohabad, Uttar Pradesh, India | Available for Remote Roles</span>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col md:flex-row gap-4 justify-center fade-in flex-wrap">
+                    <a href="resume.html" target="_blank" rel="noopener noreferrer" class="glow-btn" aria-label="View Professional Resume">
+                        <i class="fas fa-file-pdf mr-2"></i> View Resume
+                    </a>
+                    <a href="https://github.com/Mohammad-Zubair1" target="_blank" rel="noopener noreferrer" class="glow-btn btn-secondary" aria-label="Visit GitHub">
+                        <i class="fab fa-github mr-2"></i> GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/mohammadzubairdev" target="_blank" rel="noopener noreferrer" class="glow-btn btn-secondary" aria-label="Visit LinkedIn">
+                        <i class="fab fa-linkedin mr-2"></i> LinkedIn
+                    </a>
+                    <a href="#contact" class="glow-btn btn-secondary" aria-label="Contact me">
+                        <i class="fas fa-envelope mr-2"></i> Get in Touch
+                    </a>
+                </div>
+
+                <!-- Social Links -->
+                <div class="flex justify-center gap-6 mt-12 fade-in">
+                    <a href="https://github.com/Mohammad-Zubair1" target="_blank" rel="noopener noreferrer" class="text-2xl text-gray-400 hover:text-emerald-400 transition" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mohammadzubairdev" target="_blank" rel="noopener noreferrer" class="text-2xl text-gray-400 hover:text-emerald-400 transition" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:zubairskb030@gmail.com" class="text-2xl text-gray-400 hover:text-emerald-400 transition" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+
+                <!-- Scroll Indicator -->
+                <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce fade-in">
+                    <i class="fas fa-chevron-down text-emerald-400 text-2xl"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 px-4 md:px-8">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 glow-text text-center">
+                    <i class="fas fa-user-circle mr-3"></i> About Me
+                </h2>
+
+                <div class="glass glass-hover p-8 md:p-12 rounded-2xl mb-12">
+                    <h3 class="text-2xl font-bold text-emerald-400 mb-6">Professional Summary</h3>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        I'm a passionate <span class="text-emerald-400 font-semibold">Full Stack Developer</span> with a strong foundation in building scalable, user-centric applications. As a fresher, I've already created a production-ready EdTech platform that demonstrates end-to-end development expertise, from concept and design to deployment and maintenance.
+                    </p>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        My journey in full-stack development includes hands-on experience with modern frameworks (React.js, Laravel), secure authentication systems, payment gateway integration, and responsive UI/UX design. I'm committed to continuous learning and currently expanding my skills in Node.js and advanced architecture patterns.
+                    </p>
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        I thrive in agile environments, solve complex problems systematically, and deliver clean, maintainable code. I'm actively seeking entry-level remote roles to contribute to impactful projects while scaling my expertise in full-stack development and emerging technologies.
+                    </p>
+                </div>
+
+                <!-- Soft Skills -->
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="glass glass-hover p-8 rounded-2xl">
+                        <h3 class="text-xl font-bold text-emerald-400 mb-6">
+                            <i class="fas fa-star mr-2"></i> Core Strengths
+                        </h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-center"><i class="fas fa-check text-emerald-400 mr-3"></i> Self-Motivated Learner</li>
+                            <li class="flex items-center"><i class="fas fa-check text-emerald-400 mr-3"></i> Problem Solver</li>
+                            <li class="flex items-center"><i class="fas fa-check text-emerald-400 mr-3"></i> Attention to Detail</li>
+                            <li class="flex items-center"><i class="fas fa-check text-emerald-400 mr-3"></i> Time Management</li>
+                            <li class="flex items-center"><i class="fas fa-check text-emerald-400 mr-3"></i> Adaptability</li>
+                            <li class="flex items-center"><i class="fas fa-check text-emerald-400 mr-3"></i> Clear Communication</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass glass-hover p-8 rounded-2xl">
+                        <h3 class="text-xl font-bold text-emerald-400 mb-6">
+                            <i class="fas fa-globe mr-2"></i> Languages & Availability
+                        </h3>
+                        <ul class="space-y-3 text-gray-300 mb-6">
+                            <li><span class="font-semibold">Hindi:</span> Native</li>
+                            <li><span class="font-semibold">English:</span> Professional Working Proficiency</li>
+                            <li><span class="font-semibold">Urdu:</span> Fluent</li>
+                        </ul>
+                        <div class="pt-6 border-t border-emerald-400/20">
+                            <p class="text-emerald-400 font-semibold mb-2">
+                                <i class="fas fa-briefcase mr-2"></i> Availability: Immediate Joiner
+                            </p>
+                            <p class="text-gray-400 text-sm">
+                                Preferred locations: Remote, Bangalore, Noida, Hyderabad, Pune, Delhi NCR
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 px-4 md:px-8">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 glow-text text-center">
+                    <i class="fas fa-code mr-3"></i> Technical Skills
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Frontend Skills -->
+                    <div class="glass glass-hover p-8 rounded-2xl">
+                        <h3 class="text-2xl font-bold text-emerald-400 mb-6">
+                            <i class="fas fa-palette mr-2"></i> Frontend Development
+                        </h3>
+                        <div class="flex flex-wrap">
+                            <span class="skill-chip">React.js</span>
+                            <span class="skill-chip">JavaScript (ES6+)</span>
+                            <span class="skill-chip">Redux</span>
+                            <span class="skill-chip">HTML5</span>
+                            <span class="skill-chip">CSS3</span>
+                            <span class="skill-chip">Tailwind CSS</span>
+                            <span class="skill-chip">Bootstrap</span>
+                            <span class="skill-chip">Responsive Design</span>
+                        </div>
+                    </div>
+
+                    <!-- Backend Skills -->
+                    <div class="glass glass-hover p-8 rounded-2xl">
+                        <h3 class="text-2xl font-bold text-emerald-400 mb-6">
+                            <i class="fas fa-server mr-2"></i> Backend Development
+                        </h3>
+                        <div class="flex flex-wrap">
+                            <span class="skill-chip">Laravel</span>
+                            <span class="skill-chip">PHP</span>
+                            <span class="skill-chip">Node.js</span>
+                            <span class="skill-chip">Express.js</span>
+                            <span class="skill-chip">RESTful APIs</span>
+                            <span class="skill-chip">Sanctum</span>
+                            <span class="skill-chip">JWT Auth</span>
+                        </div>
+                    </div>
+
+                    <!-- Database & Payment -->
+                    <div class="glass glass-hover p-8 rounded-2xl">
+                        <h3 class="text-2xl font-bold text-emerald-400 mb-6">
+                            <i class="fas fa-database mr-2"></i> Database & Payments
+                        </h3>
+                        <div class="flex flex-wrap">
+                            <span class="skill-chip">MySQL</span>
+                            <span class="skill-chip">MongoDB</span>
+                            <span class="skill-chip">Database Design</span>
+                            <span class="skill-chip">Query Optimization</span>
+                            <span class="skill-chip">Razorpay</span>
+                            <span class="skill-chip">Webhooks</span>
+                            <span class="skill-chip">Transaction Mgmt</span>
+                        </div>
+                    </div>
+
+                    <!-- Tools & DevOps -->
+                    <div class="glass glass-hover p-8 rounded-2xl">
+                        <h3 class="text-2xl font-bold text-emerald-400 mb-6">
+                            <i class="fas fa-tools mr-2"></i> Tools & DevOps
+                        </h3>
+                        <div class="flex flex-wrap">
+                            <span class="skill-chip">Git & GitHub</span>
+                            <span class="skill-chip">VS Code</span>
+                            <span class="skill-chip">Postman</span>
+                            <span class="skill-chip">Composer</span>
+                            <span class="skill-chip">npm</span>
+                            <span class="skill-chip">Vercel</span>
+                            <span class="skill-chip">Railway</span>
+                            <span class="skill-chip">CI/CD</span>
+                        </div>
+                    </div>
+
+                    <!-- Specializations -->
+                    <div class="glass glass-hover p-8 rounded-2xl md:col-span-2">
+                        <h3 class="text-2xl font-bold text-emerald-400 mb-6">
+                            <i class="fas fa-rocket mr-2"></i> Specializations
+                        </h3>
+                        <div class="flex flex-wrap">
+                            <span class="skill-chip">Full-Stack Development</span>
+                            <span class="skill-chip">LAMP Stack</span>
+                            <span class="skill-chip">API Integration</span>
+                            <span class="skill-chip">Agile Development</span>
+                            <span class="skill-chip">Problem Solving</span>
+                            <span class="skill-chip">Payment Integration</span>
+                            <span class="skill-chip">EdTech Solutions</span>
+                            <span class="skill-chip">Component Architecture</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 px-4 md:px-8">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 glow-text text-center">
+                    <i class="fas fa-project-diagram mr-3"></i> Featured Projects
+                </h2>
+
+                <!-- Featured Project: CourseLab -->
+                <div class="glass glass-hover p-8 md:p-12 rounded-2xl mb-12 card-3d">
+                    <div class="grid md:grid-cols-2 gap-8 items-center mb-8">
+                        <div>
+                            <div class="inline-block bg-emerald-400/20 text-emerald-400 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                                <i class="fas fa-star mr-2"></i> Featured Project
+                            </div>
+                            <h3 class="text-3xl font-bold text-white mb-4">CourseLab</h3>
+                            <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                                A production-ready, Physics Wallah-inspired EdTech SaaS platform enabling users to browse, purchase, and access educational content with video streaming, quizzes, and certificates.
+                            </p>
+
+                            <!-- Key Metrics -->
+                            <div class="grid grid-cols-2 gap-4 mb-8">
+                                <div class="bg-emerald-400/10 p-4 rounded-lg border border-emerald-400/20">
+                                    <p class="text-emerald-400 font-bold text-2xl">50+</p>
+                                    <p class="text-gray-400 text-sm">Active Users</p>
+                                </div>
+                                <div class="bg-emerald-400/10 p-4 rounded-lg border border-emerald-400/20">
+                                    <p class="text-emerald-400 font-bold text-2xl">30%</p>
+                                    <p class="text-gray-400 text-sm">Engagement Boost</p>
+                                </div>
+                                <div class="bg-emerald-400/10 p-4 rounded-lg border border-emerald-400/20">
+                                    <p class="text-emerald-400 font-bold text-2xl">90+</p>
+                                    <p class="text-gray-400 text-sm">Lighthouse Score</p>
+                                </div>
+                                <div class="bg-emerald-400/10 p-4 rounded-lg border border-emerald-400/20">
+                                    <p class="text-emerald-400 font-bold text-2xl">99.9%</p>
+                                    <p class="text-gray-400 text-sm">Uptime</p>
+                                </div>
+                            </div>
+
+                            <!-- Tech Stack -->
+                            <div class="mb-8">
+                                <h4 class="text-lg font-semibold text-gray-300 mb-3">Tech Stack:</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="skill-chip">React.js</span>
+                                    <span class="skill-chip">Laravel 10</span>
+                                    <span class="skill-chip">MySQL</span>
+                                    <span class="skill-chip">Razorpay</span>
+                                    <span class="skill-chip">Tailwind CSS</span>
+                                    <span class="skill-chip">Vercel</span>
+                                    <span class="skill-chip">Railway</span>
+                                </div>
+                            </div>
+
+                            <!-- Key Features -->
+                            <div class="mb-8">
+                                <h4 class="text-lg font-semibold text-gray-300 mb-3">Key Features:</h4>
+                                <ul class="space-y-2 text-gray-400">
+                                    <li><i class="fas fa-check text-emerald-400 mr-2"></i>User registration/login with JWT tokens</li>
+                                    <li><i class="fas fa-check text-emerald-400 mr-2"></i>Advanced course search & filtering with pagination</li>
+                                    <li><i class="fas fa-check text-emerald-400 mr-2"></i>Shopping cart with session persistence</li>
+                                    <li><i class="fas fa-check text-emerald-400 mr-2"></i>Razorpay payment integration with webhook verification</li>
+                                    <li><i class="fas fa-check text-emerald-400 mr-2"></i>Student dashboard with enrollment tracking</li>
+                                    <li><i class="fas fa-check text-emerald-400 mr-2"></i>Admin panel for course & user management</li>
+                                </ul>
+                            </div>
+
+                            <!-- Highlights -->
+                            <div class="bg-cyan-400/10 border border-cyan-400/20 p-4 rounded-lg mb-8">
+                                <p class="text-gray-300 text-sm">
+                                    <span class="text-cyan-400 font-semibold">12-week Solo Development:</span> Built end-to-end from concept to deployment. Designed normalized MySQL schema managing 500+ records with optimized queries reducing response time by 50%. Implemented role-based access control (Student, Instructor, Admin) with zero payment failures.
+                                </p>
+                            </div>
+
+                            <!-- Links -->
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <a href="https://courselab-demo.vercel.app" target="_blank" rel="noopener noreferrer" class="glow-btn" aria-label="View CourseLab Live Demo">
+                                    <i class="fas fa-globe mr-2"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/Mohammad-Zubair1/courselab" target="_blank" rel="noopener noreferrer" class="glow-btn btn-secondary" aria-label="View CourseLab GitHub">
+                                    <i class="fab fa-github mr-2"></i> GitHub Repo
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="hidden md:block">
+                            <div class="glass p-6 rounded-xl">
+                                <div class="bg-gradient-to-br from-emerald-400/20 to-cyan-400/20 aspect-video rounded-lg flex items-center justify-center border border-emerald-400/30">
+                                    <img src="screenshots/shot2.png" alt="CourseLab Project Screenshot" width="1280" height="720" loading="lazy" class="rounded-lg">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Projects -->
+
+                    <!-- CourseLab Screenshots Gallery -->
+                    <div class="mb-12">
+                        <h3 class="text-2xl font-bold text-white mb-6">CourseLab – Screenshots & UI Preview</h3>
+                        <div class="screens-grid grid md:grid-cols-4 gap-4">
+                            <div class="glass glass-hover p-4 rounded-lg overflow-hidden cursor-pointer gallery-item">
+                                <img src="screenshots/shot1.png" alt="CourseLab Dashboard" data-src="screenshots/shot1.png" loading="lazy" width="1200" height="675" class="w-full h-48 object-cover rounded-lg hover:scale-105">
+                                <p class="text-gray-300 text-sm mt-3 text-center">Dashboard</p>
+                            </div>
+                            <div class="glass glass-hover p-4 rounded-lg overflow-hidden cursor-pointer gallery-item">
+                                <img src="screenshots/shot2.png" alt="CourseLab Course Listing" data-src="screenshots/shot2.png" loading="lazy" width="1280" height="720" class="w-full h-48 object-cover rounded-lg hover:scale-105">
+                                <p class="text-gray-300 text-sm mt-3 text-center">Course Listing</p>
+                            </div>
+                            <div class="glass glass-hover p-4 rounded-lg overflow-hidden cursor-pointer gallery-item">
+                                <img src="screenshots/student-dashboard.png" alt="CourseLab Student Dashboard" data-src="screenshots/student-dashboard.png" loading="lazy" width="1200" height="675" class="w-full h-48 object-cover rounded-lg hover:scale-105">
+                                <p class="text-gray-300 text-sm mt-3 text-center">Student Dashboard</p>
+                            </div>
+                            <div class="glass glass-hover p-4 rounded-lg overflow-hidden cursor-pointer gallery-item">
+                                <img src="screenshots/admin.png" alt="CourseLab Admin Panel" data-src="screenshots/shot4.png" loading="lazy" width="1200" height="675" class="w-full h-48 object-cover rounded-lg hover:scale-105">
+                                <p class="text-gray-300 text-sm mt-3 text-center">Admin Panel</p>
+                            </div>
+                        </div>
+                    </div>
+
+                <h3 class="text-2xl font-bold text-white mb-8">Other Notable Projects</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Task Management App -->
+                    <div class="glass glass-hover p-8 rounded-2xl card-3d">
+                        <h4 class="text-xl font-bold text-emerald-400 mb-3">Task Management Application</h4>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Full-stack task manager with RESTful API, JWT authentication, drag-and-drop UI, and real-time updates for efficient task organization and priority management.
+                        </p>
+                        <div class="mb-4">
+                            <p class="text-gray-300 text-sm font-semibold mb-2">Tech Stack:</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-chip">Node.js</span>
+                                <span class="skill-chip">Express.js</span>
+                                <span class="skill-chip">MongoDB</span>
+                                <span class="skill-chip">React.js</span>
+                            </div>
+                        </div>
+                        <div class="text-gray-400 text-sm mb-4">
+                            <i class="fas fa-calendar text-emerald-400 mr-2"></i> May 2024 - June 2024
+                        </div>
+                    </div>
+
+                    <!-- Portfolio Website -->
+                    <div class="glass glass-hover p-8 rounded-2xl card-3d">
+                        <h4 class="text-xl font-bold text-emerald-400 mb-3">Personal Portfolio Website</h4>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Responsive portfolio featuring smooth animations, integrated contact form, and project showcase section. Achieved 95+ Google Lighthouse performance score.
+                        </p>
+                        <div class="mb-4">
+                            <p class="text-gray-300 text-sm font-semibold mb-2">Tech Stack:</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-chip">React.js</span>
+                                <span class="skill-chip">Tailwind CSS</span>
+                                <span class="skill-chip">Framer Motion</span>
+                            </div>
+                        </div>
+                        <div class="text-gray-400 text-sm mb-4">
+                            <i class="fas fa-calendar text-emerald-400 mr-2"></i> July 2024 - August 2024
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Certifications Section -->
+        <section id="education" class="py-20 px-4 md:px-8">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 glow-text text-center">
+                    <i class="fas fa-graduation-cap mr-3"></i> Education & Certifications
+                </h2>
+
+                <!-- Education -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold text-emerald-400 mb-6">
+                        <i class="fas fa-book mr-2"></i> Education
+                    </h3>
+                    <div class="timeline-item">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <h4 class="text-xl font-bold text-white">Bachelor of Science - Computer Science</h4>
+                                <p class="text-emerald-400 font-semibold">JS University, Shikohabad</p>
+                            </div>
+                            <span class="text-gray-400 text-sm whitespace-nowrap ml-4">Nov 2023 - Dec 2026</span>
+                        </div>
+                        <p class="text-gray-300 mb-3">
+                            <span class="text-emerald-400 font-semibold">CGPA: 8.1/10</span>
+                        </p>
+                        <p class="text-gray-400 text-sm mb-3">
+                            <strong>Relevant Coursework:</strong> Data Structures and Algorithms, Database Management Systems, Web Technologies, Object-Oriented Programming, Software Engineering, Operating Systems
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div>
+                    <h3 class="text-2xl font-bold text-emerald-400 mb-6">
+                        <i class="fas fa-certificate mr-2"></i> Certifications & Training
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="timeline-item">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="text-lg font-bold text-white">Complete Web Development Bootcamp</h4>
+                                <span class="text-gray-400 text-sm">June 2024</span>
+                            </div>
+                            <p class="text-emerald-400 text-sm">Astha Animation</p>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="text-lg font-bold text-white">Laravel Development</h4>
+                                <span class="text-gray-400 text-sm">July 2024</span>
+                            </div>
+                            <p class="text-emerald-400 text-sm">Professional Development Course</p>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="text-lg font-bold text-white">PHP & MySQL Development</h4>
+                                <span class="text-gray-400 text-sm">May 2024</span>
+                            </div>
+                            <p class="text-emerald-400 text-sm">Professional Development Course</p>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="text-lg font-bold text-white">React.js & Tailwind CSS Mastery</h4>
+                                <span class="text-gray-400 text-sm">August 2024</span>
+                            </div>
+                            <p class="text-emerald-400 text-sm">Chai Aur Code (by Hitesh Choudhary)</p>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="text-lg font-bold text-white">Node.js Complete Course</h4>
+                                <span class="text-gray-400 text-sm">September 2024</span>
+                            </div>
+                            <p class="text-emerald-400 text-sm">Coursera</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 px-4 md:px-8">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 glow-text text-center">
+                    <i class="fas fa-envelope mr-3"></i> Get In Touch
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Contact Form -->
+                    <div class="glass glass-hover p-8 rounded-2xl">
+                        <h3 class="text-2xl font-bold text-emerald-400 mb-6">Send Me a Message</h3>
+                        <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-gray-300 text-sm font-semibold mb-2">Name</label>
+                                <input type="text" id="name" name="name" required placeholder="Your Name" class="w-full" aria-label="Your Name">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-300 text-sm font-semibold mb-2">Email</label>
+                                <input type="email" id="email" name="email" required placeholder="your@email.com" class="w-full" aria-label="Your Email">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-gray-300 text-sm font-semibold mb-2">Message</label>
+                                <textarea id="message" name="message" required placeholder="Your message here..." rows="5" class="w-full" aria-label="Your Message"></textarea>
+                            </div>
+                            <button type="submit" class="w-full glow-btn" aria-label="Send Message">
+                                <i class="fas fa-paper-plane mr-2"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="space-y-6">
+                        <!-- Email Card -->
+                        <div class="glass glass-hover p-6 rounded-xl">
+                            <h4 class="text-lg font-bold text-emerald-400 mb-3">
+                                <i class="fas fa-envelope mr-2"></i> Email
+                            </h4>
+                            <a href="mailto:zubairskb030@gmail.com" class="text-gray-300 hover:text-emerald-400 text-lg font-semibold break-all">
+                                zubairskb030@gmail.com
+                            </a>
+                        </div>
+
+                        <!-- Phone Card -->
+                        <div class="glass glass-hover p-6 rounded-xl">
+                            <h4 class="text-lg font-bold text-emerald-400 mb-3">
+                                <i class="fas fa-phone mr-2"></i> Phone
+                            </h4>
+                            <a href="tel:+917248361486" class="text-gray-300 hover:text-emerald-400 text-lg font-semibold">
+                                +91 7248361486
+                            </a>
+                        </div>
+
+                        <!-- Location Card -->
+                        <div class="glass glass-hover p-6 rounded-xl">
+                            <h4 class="text-lg font-bold text-emerald-400 mb-3">
+                                <i class="fas fa-map-marker-alt mr-2"></i> Location
+                            </h4>
+                            <p class="text-gray-300 text-lg font-semibold">
+                                Shikohabad, Uttar Pradesh, India
+                            </p>
+                            <p class="text-gray-400 text-sm mt-2">Available for remote work globally</p>
+                        </div>
+
+                        <!-- Social Links Card -->
+                        <div class="glass glass-hover p-6 rounded-xl">
+                            <h4 class="text-lg font-bold text-emerald-400 mb-4">
+                                <i class="fas fa-share-alt mr-2"></i> Connect With Me
+                            </h4>
+                            <div class="flex gap-4">
+                                <a href="https://github.com/Mohammad-Zubair1" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-12 h-12 rounded-full glass hover:bg-emerald-400/20 transition" aria-label="GitHub">
+                                    <i class="fab fa-github text-xl text-emerald-400"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/mohammadzubairdev" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-12 h-12 rounded-full glass hover:bg-emerald-400/20 transition" aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin text-xl text-emerald-400"></i>
+                                </a>
+                                <a href="mailto:zubairskb030@gmail.com" class="flex items-center justify-center w-12 h-12 rounded-full glass hover:bg-emerald-400/20 transition" aria-label="Email">
+                                    <i class="fas fa-envelope text-xl text-emerald-400"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="border-t border-emerald-400/10 py-8 px-4 md:px-8 glass">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="mb-4">
+                    <p class="text-gray-400 text-sm">
+                        <i class="fas fa-code mr-2"></i> Built with passion using React.js, Tailwind CSS, and modern web technologies
+                    </p>
+                </div>
+                <div class="flex justify-center gap-6 mb-4">
+                    <a href="https://github.com/Mohammad-Zubair1" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-emerald-400 transition" aria-label="GitHub">
+                        <i class="fab fa-github text-lg"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mohammadzubairdev" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-emerald-400 transition" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin text-lg"></i>
+                    </a>
+                    <a href="mailto:zubairskb030@gmail.com" class="text-gray-400 hover:text-emerald-400 transition" aria-label="Email">
+                        <i class="fas fa-envelope text-lg"></i>
+                    </a>
+                </div>
+                <p class="text-gray-500 text-xs">
+                    &copy; 2024 Mohammad Zubair. All rights reserved. | Full Stack Developer specializing in React.js & Laravel
+                </p>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top" role="button" tabindex="0">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- JavaScript -->
+        <!-- Modal: screenshot preview -->
+        <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" tabindex="-1" style="display:none;">
+            <button class="modal-close" aria-label="Close modal">✕</button>
+            <img id="modal-img" src="" alt="Screenshot preview" />
+        </div>
+    <script>
+        // Initialize Lenis Smooth Scroll
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+            infinite: false,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+
+        // Scroll to Top Button Functionality
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('active');
+            } else {
+                scrollToTopBtn.classList.remove('active');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            lenis.scrollTo(0, { duration: 2 });
+        });
+
+        scrollToTopBtn.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                lenis.scrollTo(0, { duration: 2 });
+            }
+        });
+
+        // Form Submission Handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            // Note: Replace YOUR_FORM_ID with actual Formspree form ID
+            // To set up: go to formspree.io, create a new form, get your form ID
+            // Update the form action attribute with: https://formspree.io/f/YOUR_FORM_ID
+            const email = document.getElementById('email').value;
+            const name = document.getElementById('name').value;
+            
+            if (!email || !name) {
+                alert('Please fill in all required fields');
+                e.preventDefault();
+            }
+        });
+
+        // Add scroll animations to elements
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with fade-in class
+        document.querySelectorAll('.fade-in, .glass, .timeline-item').forEach(el => {
+            if (!el.classList.contains('fade-in')) {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.8s ease';
+            }
+            observer.observe(el);
+        });
+
+        // Modal hookup for gallery items
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modal-img');
+        if (modal && modalImg) {
+            document.querySelectorAll('.gallery-item img').forEach(img => {
+                img.addEventListener('click', () => {
+                    const src = img.dataset.src || img.src;
+                    modalImg.src = src;
+                    modal.style.display = 'flex';
+                    modal.setAttribute('aria-hidden', 'false');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            modal.querySelector('.modal-close').addEventListener('click', () => {
+                modal.style.display = 'none';
+                modal.setAttribute('aria-hidden', 'true');
+                modalImg.src = '';
+                document.body.style.overflow = '';
+            });
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.querySelector('.modal-close').click();
+            });
+        }
+
+        // Mobile Menu Handler (ARIA + toggle nav-links)
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                const navLinks = document.querySelector('.nav-links');
+                const expanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+                mobileMenuBtn.setAttribute('aria-expanded', (!expanded).toString());
+                if (navLinks) {
+                    navLinks.classList.toggle('hidden');
+                    navLinks.setAttribute('aria-hidden', expanded.toString());
+                }
+                document.querySelector('nav').classList.toggle('expanded');
+            });
+        }
+
+        // Close mobile menu on link click (also update ARIA)
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                const nav = document.querySelector('nav');
+                nav.classList.remove('expanded');
+                const navLinks = document.querySelector('.nav-links');
+                if (navLinks) {
+                    navLinks.classList.add('hidden');
+                    navLinks.setAttribute('aria-hidden', 'true');
+                }
+                if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Accessibility: Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const nav = document.querySelector('nav');
+                nav.classList.remove('expanded');
+            }
+        });
+
+        // Analytics placeholder (replace with your tracking code)
+        // Example: Google Analytics, Hotjar, or other monitoring tools
+        
+                console.log('Portfolio loaded successfully!');
+                console.log('Full Stack Developer - Mohammad Zubair');
+        </script>
+</body>
+</html>
