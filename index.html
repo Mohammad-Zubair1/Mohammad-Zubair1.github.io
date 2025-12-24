@@ -10,11 +10,21 @@
     <meta property="og:description" content="Explore the portfolio of Mohammad Zubair, a Full Stack Developer specializing in React.js and Laravel with expertise in payment integration and EdTech solutions.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mohammadzubair.dev">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@mohammadzubairdev">
+    <meta name="twitter:title" content="Mohammad Zubair - Full Stack Developer">
+    <meta name="twitter:description" content="Full Stack Developer (React & Laravel). Explore projects, skills, and contact.">
+    <link rel="canonical" href="https://mohammadzubair.dev">
+    <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0f172a">
     
     <title>Mohammad Zubair - Full Stack Developer | React & Laravel</title>
     
     <!-- Tailwind CSS CDN -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preload" as="image" href="screenshots/Profile.webp">
+    <link rel="preload" as="image" href="screenshots/shot2.webp">
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Font Awesome for Icons -->
@@ -41,12 +51,55 @@
             scroll-behavior: smooth;
         }
 
+        /* Intersection reveal helpers */
+        .will-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            will-change: opacity, transform;
+        }
+
+        .will-reveal.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Lazy image fade-in */
+        img.lazyload {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        img.lazyloaded {
+            opacity: 1;
+        }
+
+        /* Skeleton placeholders */
+        .skeleton {
+            background: linear-gradient(90deg,#111827 0%, #374151 50%, #111827 100%);
+            background-size: 200% 100%;
+            animation: shimmer 1.2s linear infinite;
+        }
+
+        .skeleton-rect { display: block; width: 100%; height: 100%; }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #0f172a 0%, #1a1f35 50%, #0f172a 100%);
             color: #e2e8f0;
             overflow-x: hidden;
             position: relative;
+        }
+        html.page-loading body {
+            opacity: 0;
+        }
+        body {
+            transition: opacity 0.45s ease;
         }
 
         /* Animated Background Orbs */
@@ -326,6 +379,50 @@
                 width: 45px;
                 height: 45px;
             }
+        }
+
+        /* Mobile menu panel */
+        .mobile-menu {
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            background: rgba(3,7,18,0.95);
+            backdrop-filter: blur(6px);
+            transform: translateY(-10px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+            z-index: 60;
+            padding: 1rem;
+        }
+
+        .mobile-menu.open {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Ensure touch-friendly controls */
+        .glow-btn, .filter-btn, .nav a, .mobile-menu a {
+            min-height: 44px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Prevent text overflow on small devices */
+        .line-clamp-2, p, h1, h2, h3, h4, span, a {
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
+        /* Visible focus styles for accessibility */
+        :focus {
+            outline: 3px solid rgba(16,185,129,0.18);
+            outline-offset: 2px;
         }
 
         /* Limit transitions to interactive elements for performance */
@@ -746,6 +843,17 @@
             <button class="md:hidden text-emerald-400 text-2xl" id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false">
                 <i class="fas fa-bars"></i>
             </button>
+            <!-- Mobile menu panel (small screens) -->
+            <div id="mobileMenu" class="mobile-menu md:hidden" aria-hidden="true">
+                <nav role="menu" aria-label="Main mobile navigation">
+                    <a role="menuitem" href="#hero" class="block text-gray-300 hover:text-emerald-400 py-2">Home</a>
+                    <a role="menuitem" href="#about" class="block text-gray-300 hover:text-emerald-400 py-2">About</a>
+                    <a role="menuitem" href="#skills" class="block text-gray-300 hover:text-emerald-400 py-2">Skills</a>
+                    <a role="menuitem" href="#projects" class="block text-gray-300 hover:text-emerald-400 py-2">Projects</a>
+                    <a role="menuitem" href="#education" class="block text-gray-300 hover:text-emerald-400 py-2">Education</a>
+                    <a role="menuitem" href="#contact" class="block text-gray-300 hover:text-emerald-400 py-2">Contact</a>
+                </nav>
+            </div>
         </div>
     </nav>
 
@@ -755,7 +863,13 @@
             <div class="max-w-4xl mx-auto text-center">
                 <div class="mb-8 fade-in">
                     <div class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full glass p-2 mb-6">
-                        <img src="screenshots/Profile.png" alt="Mohammad Zubair Profile" width="320" height="320" loading="lazy" class="w-full h-full rounded-full object-cover">
+                        <div class="skeleton rounded-full w-full h-full overflow-hidden" aria-hidden="true">
+                            <span class="skeleton-rect"></span>
+                        </div>
+                        <picture>
+                            <source type="image/webp" data-srcset="screenshots/Profile.webp" />
+                            <img data-src="screenshots/Profile.png" alt="Mohammad Zubair Profile" width="320" height="320" loading="lazy" class="w-full h-full rounded-full object-cover lazyload" />
+                        </picture>
                     </div>
                 </div>
 
@@ -827,34 +941,7 @@
                     <span>Shikohabad, Uttar Pradesh, India | Available for Remote Roles</span>
                 </div>
 
-                <!-- CTA Buttons -->
-                <div class="flex flex-col md:flex-row gap-4 justify-center fade-in flex-wrap">
-                    <a href="resume.html" target="_blank" rel="noopener noreferrer" class="glow-btn" aria-label="View Professional Resume">
-                        <i class="fas fa-file-pdf mr-2"></i> View Resume
-                    </a>
-                    <a href="https://github.com/Mohammad-Zubair1" target="_blank" rel="noopener noreferrer" class="glow-btn btn-secondary" aria-label="Visit GitHub">
-                        <i class="fab fa-github mr-2"></i> GitHub
-                    </a>
-                    <a href="https://www.linkedin.com/in/mohammadzubairdev" target="_blank" rel="noopener noreferrer" class="glow-btn btn-secondary" aria-label="Visit LinkedIn">
-                        <i class="fab fa-linkedin mr-2"></i> LinkedIn
-                    </a>
-                    <a href="#contact" class="glow-btn btn-secondary" aria-label="Contact me">
-                        <i class="fas fa-envelope mr-2"></i> Get in Touch
-                    </a>
-                </div>
-
-                <!-- Social Links -->
-                <div class="flex justify-center gap-6 mt-12 fade-in">
-                    <a href="https://github.com/Mohammad-Zubair1" target="_blank" rel="noopener noreferrer" class="text-2xl text-gray-400 hover:text-emerald-400 transition" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/mohammadzubairdev" target="_blank" rel="noopener noreferrer" class="text-2xl text-gray-400 hover:text-emerald-400 transition" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="mailto:zubairskb030@gmail.com" class="text-2xl text-gray-400 hover:text-emerald-400 transition" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
+                
 
                 <!-- Scroll Indicator -->
                 <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce fade-in">
@@ -1439,7 +1526,13 @@
 
                         <!-- Right: Screenshot -->
                         <div class="hidden md:block rounded-xl overflow-hidden">
-                            <img src="screenshots/shot2.png" alt="CourseLab screenshot" width="1280" height="720" loading="lazy" class="w-full h-full object-cover rounded-xl hover:scale-110 transition-transform duration-300">
+                            <div class="skeleton rounded-xl w-full h-full overflow-hidden" aria-hidden="true">
+                                <span class="skeleton-rect"></span>
+                            </div>
+                            <picture>
+                                <source type="image/webp" data-srcset="screenshots/shot2.webp 1280w" />
+                                <img data-src="screenshots/shot2.png" alt="CourseLab screenshot" width="1280" height="720" loading="lazy" class="w-full h-full object-cover rounded-xl hover:scale-110 transition-transform duration-300 lazyload" />
+                            </picture>
                         </div>
                     </div>
                 </div>

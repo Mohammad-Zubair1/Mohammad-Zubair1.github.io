@@ -34,6 +34,7 @@
 ## Input States
 
 ### Normal State
+
 ```
 Email *
 [_____________________]
@@ -41,6 +42,7 @@ Color: Dark blue background, emerald border
 ```
 
 ### Focus State
+
 ```
 Email *
 [#######################] ← Glowing emerald border
@@ -49,6 +51,7 @@ Animation: Smooth 0.3s transition
 ```
 
 ### Error State
+
 ```
 Email *
 [_____________________] ← Red border
@@ -57,6 +60,7 @@ Color: Red border, red text error
 ```
 
 ### Disabled State (During Submission)
+
 ```
 Send Message ⏳  ← Button disabled, spinner shows
 Color: Grayed out
@@ -68,6 +72,7 @@ Cursor: Not-allowed
 ## Toast Notifications
 
 ### Success Toast
+
 ```
 ┌─────────────────────────────────────────┐
 │ ✓ Message sent successfully!            │ ✕
@@ -79,6 +84,7 @@ Cursor: Not-allowed
 ```
 
 ### Error Toast
+
 ```
 ┌─────────────────────────────────────────┐
 │ ⚠ Failed to send message.               │ ✕
@@ -94,6 +100,7 @@ Cursor: Not-allowed
 ## Character Counter
 
 ### Visual Display
+
 ```
 Message *                          8 / 500
 ┌────────────────────────────────────────┐
@@ -113,6 +120,7 @@ Updates as you type:
 ## Loading Spinner
 
 ### During Submission
+
 ```
 ┌──────────────────────┐
 │ ↻ Sending...         │  ← Spinner animates
@@ -126,6 +134,7 @@ Text hidden, spinner visible
 ```
 
 ### After Success/Error
+
 ```
 ┌──────────────────────┐
 │ ▶ Send Message       │  ← Back to normal
@@ -139,6 +148,7 @@ Text hidden, spinner visible
 ## reCAPTCHA Widget
 
 ### Display
+
 ```
 ┌─────────────────────────────┐
 │ 🔲 I'm not a robot         │
@@ -152,6 +162,7 @@ Styling: Standard Google reCAPTCHA appearance
 ```
 
 ### Error State
+
 ```
 ┌─────────────────────────────┐
 │ 🔲 I'm not a robot         │
@@ -197,6 +208,7 @@ Reset Button State
 ## Focus Animation
 
 ### Visual Effect
+
 ```
 Before Focus:
 [_____________________]
@@ -213,11 +225,11 @@ Back to normal state
 ```
 
 ### CSS Animation
+
 ```css
 transition: all 0.3s ease;
 border-color: #10b981;
-box-shadow: 0 0 25px rgba(16, 185, 129, 0.3),
-            inset 0 0 10px rgba(16, 185, 129, 0.1);
+box-shadow: 0 0 25px rgba(16, 185, 129, 0.3), inset 0 0 10px rgba(16, 185, 129, 0.1);
 ```
 
 ---
@@ -225,6 +237,7 @@ box-shadow: 0 0 25px rgba(16, 185, 129, 0.3),
 ## Error Message Display
 
 ### Appearance
+
 ```
 Name *
 [Input field]
@@ -237,6 +250,7 @@ Name *
 ```
 
 ### Error Types
+
 ```
 Name Field:
   ❌ "Name is required"
@@ -262,6 +276,7 @@ General:
 ## Mobile View
 
 ### Layout
+
 ```
 ┌──────────────────────┐
 │ GET IN TOUCH         │
@@ -301,6 +316,7 @@ reCAPTCHA scaled 0.85x
 ## Desktop View
 
 ### Layout
+
 ```
 ┌──────────────────────────────────────────────┐
 │ GET IN TOUCH                                 │
@@ -333,6 +349,7 @@ reCAPTCHA normal scale
 ## Animation Sequence
 
 ### Slide-In Animation (Toast)
+
 ```
 Frame 1:  [        ----]  ← Off screen right
 Frame 2:  [      ------]
@@ -343,6 +360,7 @@ Duration: 0.3s cubic-bezier ease
 ```
 
 ### Slide-Out Animation (Toast)
+
 ```
 Frame 1:  [============]  ← On screen
 Frame 2:  [  ----------]
@@ -354,6 +372,7 @@ Auto-trigger: After 5 seconds display time
 ```
 
 ### Spin Animation (Loading Spinner)
+
 ```
 Frame 1:  [⟳] (0°)
 Frame 2:  [⟲] (90°)
@@ -369,6 +388,7 @@ Repeat: infinite (until submit completes)
 ## Color Scheme
 
 ### Input Fields
+
 ```
 Normal:   #1e293b (dark blue) bg, rgba(16,185,129,0.2) border
 Focus:    #1e293b (darker) bg, #10b981 (emerald) border
@@ -378,6 +398,7 @@ Placeholder: rgba(226,232,240,0.5) (muted)
 ```
 
 ### Buttons
+
 ```
 Normal:   linear-gradient(#10b981 → #06b6d4)
 Hover:    Glow effect, scale 1.02, lift -4px
@@ -386,6 +407,7 @@ Disabled: opacity 0.7, cursor not-allowed
 ```
 
 ### Notifications
+
 ```
 Success:  #10b981 (emerald) background
 Error:    #ef4444 (red) background
@@ -394,6 +416,7 @@ Shadow:   Emerald glow for success
 ```
 
 ### Error Messages
+
 ```
 Text color: #ef4444 (red)
 Size:      0.75rem (small)
@@ -406,22 +429,24 @@ Animation: slideIn 0.3s ease
 ## Accessibility Features
 
 ### ARIA Labels
+
 ```html
-Name:    aria-label="Your Name"
-Email:   aria-label="Your Email"
-Message: aria-label="Your Message"
-Button:  aria-label="Send Message"
+Name: aria-label="Your Name" Email: aria-label="Your Email" Message:
+aria-label="Your Message" Button: aria-label="Send Message"
 ```
 
 ### Semantic HTML
+
 ```html
 <form id="contactForm">
-<label for="name">Name *</label>
-<input id="name" type="text" required>
-<button type="submit">Send Message</button>
+  <label for="name">Name *</label>
+  <input id="name" type="text" required />
+  <button type="submit">Send Message</button>
+</form>
 ```
 
 ### Keyboard Navigation
+
 ```
 Tab:      Move between fields
 Shift+Tab: Move backward between fields
@@ -430,6 +455,7 @@ Escape:    Close toast (if focus on close button)
 ```
 
 ### Screen Reader Support
+
 - Field labels announced
 - Error messages announced
 - Toast notifications focused
@@ -453,20 +479,21 @@ Validation Check:    <5ms per field
 
 ## Browser Compatibility
 
-| Feature | Chrome | Firefox | Safari | Edge |
-|---------|--------|---------|--------|------|
-| Validation | ✓ | ✓ | ✓ | ✓ |
-| Animations | ✓ | ✓ | ✓ | ✓ |
-| Toast | ✓ | ✓ | ✓ | ✓ |
-| EmailJS | ✓ | ✓ | ✓ | ✓ |
-| reCAPTCHA | ✓ | ✓ | ✓ | ✓ |
-| Focus Glow | ✓ | ✓ | ✓ | ✓ |
+| Feature    | Chrome | Firefox | Safari | Edge |
+| ---------- | ------ | ------- | ------ | ---- |
+| Validation | ✓      | ✓       | ✓      | ✓    |
+| Animations | ✓      | ✓       | ✓      | ✓    |
+| Toast      | ✓      | ✓       | ✓      | ✓    |
+| EmailJS    | ✓      | ✓       | ✓      | ✓    |
+| reCAPTCHA  | ✓      | ✓       | ✓      | ✓    |
+| Focus Glow | ✓      | ✓       | ✓      | ✓    |
 
 ---
 
 ## Summary
 
 Your contact form features:
+
 - ✅ Professional appearance
 - ✅ Smooth animations
 - ✅ Clear error feedback

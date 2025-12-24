@@ -35,18 +35,104 @@ function initScrollAnimations() {
   if (!("IntersectionObserver" in window)) return;
   const io = new IntersectionObserver(
     (entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.classList.add("in-view");
-          io.unobserve(e.target);
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          entry.target.classList.add("fade-in--visible");
+          entry.target.classList.add("lazyloaded");
+          io.unobserve(entry.target);
         }
       });
     },
     { threshold: 0.12 }
   );
-  document.querySelectorAll(".section, .project-card, .skill").forEach((el) => {
-    el.classList.add("will-reveal");
-    io.observe(el);
+
+  // Observe elements that should animate on scroll
+  document
+    .querySelectorAll(".section, .project-card, .skill, .fade-in, .will-reveal")
+    .forEach((el) => {
+      if (!el.classList.contains("will-reveal"))
+        el.classList.add("will-reveal");
+      io.observe(el);
+    });
+}
+
+// Lazy-load images (data-src / data-srcset). Uses IntersectionObserver when available.
+function initLazyImages() {
+  const imgs = Array.from(
+    document.querySelectorAll(
+      "img.lazyload, img[data-src], source[data-srcset]"
+    )
+  );
+  if (imgs.length === 0) return;
+
+  const loadImage = (img) => {
+    if (img.tagName.toLowerCase() === "source") {
+      const srcset = img.getAttribute("data-srcset");
+      if (srcset) img.setAttribute("srcset", srcset);
+      return;
+    }
+    const src = img.getAttribute("data-src");
+    const srcset = img.getAttribute("data-srcset");
+    if (srcset) img.setAttribute("srcset", srcset);
+    if (src) img.setAttribute("src", src);
+    img.addEventListener("load", () => {
+      img.classList.add("lazyloaded");
+      const wrapper = img.closest(".skeleton");
+      if (wrapper) wrapper.classList.remove("skeleton");
+    });
+  };
+
+  if ("IntersectionObserver" in window) {
+    const imgObserver = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const target = entry.target;
+            loadImage(target);
+            obs.unobserve(target);
+          }
+        });
+      },
+      { rootMargin: "200px 0px", threshold: 0.01 }
+    );
+
+    imgs.forEach((img) => imgObserver.observe(img));
+  } else {
+    // Fallback: load all
+    imgs.forEach(loadImage);
+  }
+}
+
+// Subtle parallax effect for hero section background using requestAnimationFrame
+function initParallax() {
+  const hero = document.getElementById("hero");
+  if (!hero) return;
+  let latest = 0;
+  function onScroll() {
+    latest = window.scrollY;
+    requestTick();
+  }
+  let ticking = false;
+  function requestTick() {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  }
+  function update() {
+    const offset = latest * 0.08; // subtle
+    hero.style.transform = `translateY(${offset}px)`;
+    ticking = false;
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+}
+
+// Simple page transition (fade in on load)
+function initPageTransitions() {
+  document.documentElement.classList.add("page-loading");
+  window.addEventListener("load", () => {
+    document.documentElement.classList.remove("page-loading");
   });
 }
 
@@ -56,6 +142,59 @@ function enhanceSmoothScroll() {
     a.addEventListener("click", (e) => {
       const href = a.getAttribute("href");
       if (href === "#" || href === "") return;
+
+      // Mobile menu toggle with basic accessibility
+      function initMobileMenu() {
+        const btn = document.getElementById("mobileMenuBtn");
+        const menu = document.getElementById("mobileMenu");
+        const desktopNav = document.querySelector(".nav-links");
+        if (!btn || !menu) return;
+
+        function openMenu() {
+          menu.classList.add("open");
+          menu.setAttribute("aria-hidden", "false");
+          btn.setAttribute("aria-expanded", "true");
+          // set focus to first link
+          const first = menu.querySelector('[role="menuitem"]');
+          if (first) first.focus();
+        }
+
+        function closeMenu() {
+          menu.classList.remove("open");
+          menu.setAttribute("aria-hidden", "true");
+          btn.setAttribute("aria-expanded", "false");
+          btn.focus();
+        }
+
+        btn.addEventListener("click", () => {
+          const opened = btn.getAttribute("aria-expanded") === "true";
+          if (opened) closeMenu();
+          else openMenu();
+        });
+
+        // Close when clicking a link
+        menu.addEventListener("click", (e) => {
+          if (e.target.closest("a")) {
+            closeMenu();
+          }
+        });
+
+        // Close on Escape
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            if (menu.classList.contains("open")) closeMenu();
+          }
+        });
+
+        // If viewport resized to desktop, ensure menu hidden
+        window.addEventListener("resize", () => {
+          if (window.innerWidth >= 768) {
+            menu.classList.remove("open");
+            menu.setAttribute("aria-hidden", "true");
+            btn.setAttribute("aria-expanded", "false");
+          }
+        });
+      }
       const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
@@ -148,6 +287,10 @@ document.addEventListener("DOMContentLoaded", () => {
   initTheme();
   handleStickyNav();
   initScrollAnimations();
+  initLazyImages();
+  initParallax();
+  initPageTransitions();
+  initMobileMenu();
   enhanceSmoothScroll();
   initModalPreview();
   initTilt();

@@ -3,6 +3,7 @@
 ## 3-Step Setup (Takes ~5 minutes)
 
 ### Step 1: EmailJS Setup
+
 - [ ] Go to https://www.emailjs.com/ and sign up (free)
 - [ ] Create Email Service (connect your Gmail/email)
 - [ ] Create Email Template with these variables:
@@ -13,15 +14,19 @@
 - [ ] Copy **Public Key**, **Service ID**, **Template ID**
 
 ### Step 2: Update index.html
+
 Find and replace these THREE lines:
 
 **Line ~2170:**
+
 ```javascript
-emailjs.init('YOUR_PUBLIC_KEY');
+emailjs.init("YOUR_PUBLIC_KEY");
 ```
+
 Replace `YOUR_PUBLIC_KEY` → Your EmailJS Public Key
 
 **Line ~2295 (2 replacements):**
+
 ```javascript
 await emailjs.send(
     'YOUR_SERVICE_ID',    // Replace this
@@ -29,10 +34,12 @@ await emailjs.send(
 ```
 
 ### Step 3: (Optional) reCAPTCHA Setup
+
 - [ ] Go to https://www.google.com/recaptcha/admin
 - [ ] Create reCAPTCHA v3 project
 - [ ] Copy **Site Key**
 - [ ] Find line ~1965 in `index.html` and replace:
+
 ```html
 <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
 ```
@@ -42,6 +49,7 @@ await emailjs.send(
 ## Where to Find Your Credentials
 
 ### EmailJS Dashboard
+
 ```
 Dashboard → Account → Public Key
 Dashboard → Email Services → Your Service → Service ID
@@ -49,6 +57,7 @@ Dashboard → Email Templates → Your Template → Template ID
 ```
 
 ### Google reCAPTCHA Admin
+
 ```
 https://www.google.com/recaptcha/admin
 Select your project → Site Key (under Keys section)
@@ -66,7 +75,7 @@ Select your project → Site Key (under Keys section)
 ✅ Focus animations  
 ✅ reCAPTCHA spam protection  
 ✅ Fully responsive  
-✅ Accessibility compliant  
+✅ Accessibility compliant
 
 ---
 
@@ -82,11 +91,11 @@ Select your project → Site Key (under Keys section)
 
 ## Common Issues
 
-| Problem | Solution |
-|---------|----------|
-| "EmailJS is not defined" | Make sure CDN script loaded (already in HTML) |
-| No email received | Check Service is connected, Template ID correct |
-| reCAPTCHA not showing | Verify Site Key is correct |
+| Problem                  | Solution                                        |
+| ------------------------ | ----------------------------------------------- |
+| "EmailJS is not defined" | Make sure CDN script loaded (already in HTML)   |
+| No email received        | Check Service is connected, Template ID correct |
+| reCAPTCHA not showing    | Verify Site Key is correct                      |
 
 ---
 
@@ -103,12 +112,12 @@ Select your project → Site Key (under Keys section)
 **Validation:** Client-side + Server-side ready  
 **Notifications:** Toast messages  
 **Max Message:** 500 characters  
-**Min Message:** 10 characters  
+**Min Message:** 10 characters
 
 ---
 
 **Setup Time:** ~5 minutes  
 **Monthly Cost:** Free (with optional paid upgrades)  
-**Difficulty:** Easy  
+**Difficulty:** Easy
 
 🚀 **Ready to go live!**

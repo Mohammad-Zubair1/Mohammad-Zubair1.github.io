@@ -1,0 +1,11 @@
+{
+  "name": "mohammad-zubair-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio site",
+  "scripts": {
+    "convert-images": "node ./scripts/convert-images.js ./screenshots 80"
+  },
+  "devDependencies": {
+    "sharp": "^0.32.0"
+  }
+}
